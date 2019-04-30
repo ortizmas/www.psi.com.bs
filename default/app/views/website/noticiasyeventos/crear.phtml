@@ -1,0 +1,272 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#tabnoticias a[href="#tabmenus"]').tab('show');
+        $('.linknext').click(function(){
+            var href = $(this).attr('href');
+            var tabnext = '#tabnoticias a[href="'+href+'"]';
+            $(tabnext).tab('show');
+        });
+    });
+</script>
+<div class="row">
+    <div class="span12" >
+
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php echo Form::hidden('noticiasyeventos.id') ?>
+        <?php //echo Form::text('contenidos.id') ?>
+
+
+<ul class="nav nav-tabs" id="tabnoticias">
+    <li class="active"><a href="#tabmenu" data-toggle="tab">Informação básica</a></li>
+    <li><a href="#tabcontenido" data-toggle="tab">Seção de Conteudo</a></li>
+    <?php echo Html::linkAction('', 'Regresar al Listado', 'class="btn btn-principal"') ?>
+</ul>
+
+<div class="tab-content">
+
+    <div id="tabmenu" class="tab-pane active">
+        <div class="control-group">
+            <label class="control-label" for="noticiayeventos_referencia_traduccion">Tradução de: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('noticiasyeventos.referencia_traduccion','titulo',array('noticiasyeventos','find',"conditions: idiomas_id=1 and areas_id=1"),'- Ninguna página -') ?><span class="help-inline">(Opcional, apenas para um idioma diferente do Portuges)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiayeventos_area_id">Setor a que pertenece: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('noticiasyeventos.areas_id','nombre',array('areas','find',"conditions: id= 1"/*.Session::get('SITEID')*/),'- Ninguna página -') ?><span class="help-inline"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_idiomas_id">Idioma: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('noticiasyeventos.idiomas_id','nombre',array('idiomas','find'),NULL) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_titulo">Titulo: </label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.titulo','class="span4"') ?><span class="help-inline"></span>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $("#noticiasyeventos_titulo").keyup(function(){
+                    var titulo = $(this).val();
+                    $("#noticiasyeventos_titulo").text(titulo);
+                    $("#noticiasyeventos_titulo").val(titulo);
+                });
+                $("#noticiasyeventos_titulo").keyup(function(){
+                    var titulo = $(this).val();
+                    var stitulo=titulo;
+                    titulo = titulo.replace(/ /g,'-');
+                    titulo = titulo.replace(/\+/g,'-');
+                    titulo = titulo.replace(/\?/g,'');
+                    titulo = titulo.replace(/\¿/g,'');
+                    titulo = titulo.replace(/\¡/g,'');
+                    titulo = titulo.replace(/\!/g,'');
+                    titulo = titulo.replace(/Ñ/g,'N');
+                    titulo = titulo.replace(/ñ/g,'n');
+                    titulo = titulo.replace(/Á/g,'A');
+                    titulo = titulo.replace(/á/g,'a');
+                    titulo = titulo.replace(/Â/g,'A');
+                    titulo = titulo.replace(/â/g,'a');
+                    titulo = titulo.replace(/Ã/g,'A');
+                    titulo = titulo.replace(/ã/g,'a');
+                    titulo = titulo.replace(/Õ/g,'O');
+                    titulo = titulo.replace(/õ/g,'o');
+                    titulo = titulo.replace(/Ç/g,'C');
+                    titulo = titulo.replace(/ç/g,'c');
+                    titulo = titulo.replace(/É/g,'E');
+                    titulo = titulo.replace(/é/g,'e');
+                    titulo = titulo.replace(/Í/g,'I');
+                    titulo = titulo.replace(/í/g,'i');
+                    titulo = titulo.replace(/Ó/g,'O');
+                    titulo = titulo.replace(/ó/g,'o');
+                    titulo = titulo.replace(/Ú/g,'U');
+                    titulo = titulo.replace(/ú/g,'u');
+                    titulo = titulo.replace(/\-\-/g,'-');
+                    titulo = titulo.replace(/\-\-\-/g,'-');
+                    titulo = titulo.replace(/\-\-\-\-/g,'-');
+                    titulo = titulo.replace(/\+\-/g,'-');
+                    titulo = titulo.toLowerCase();
+                    $("#noticiasyeventos_urlpath").val(titulo);
+                    $("#noticiasyeventos_urltext").text(titulo);
+                });
+                $("#noticiasyeventos_urlpath").keyup(function(){
+                    var titulo = $(this).val();
+                    $("#noticiasyeventos_urltext").text(titulo);
+                });
+            });
+        </script>
+
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_subtirulo">Subtitulo: </label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.subtitulo','class="span4"') ?><span class="help-inline"></span>
+            </div>
+        </div>
+        <script>
+           $().ready(function(){
+           $('.cambio').change(function(e){
+                   if($('.cambio').val()=='ultinoti' || $('.cambio').val()=='calendario'){//oculta el div1 y muestra los demas
+                     $('#apDiv1').hide();
+                   }else{//oculta el div1 y muestra los demas
+                     $('#apDiv1').show();
+                   }
+               });
+           })
+        </script>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_tipo">Tipo de conteudo: </label>
+            <div class="controls">
+                <?php echo Form::select('noticiasyeventos.tipo', array('destaque' => 'Destaque','projetos' => 'Projetos','noticias' => 'Noticias','dicasDeSaude' => 'Dicas de Saúde','analiseDaSaude' => 'Análise de Saúde','loja' => 'Loja Virtual','testimoniais' => 'Testimoniais','parceiros' => 'Parceiros','eventos' => 'Eventos','equipo' => 'Equipo','clinica' => 'Clinica','empresarial' => 'Empresarial','clubVantagens' => 'Club de Vantagens'),'class="cambio"')?>
+            </div>
+        </div>
+
+        <div id="apDiv1" class="control-group warning">
+            <label class="control-label" for="noticiasyeventos_urlpath">URL permanente: <br> < Ejemplo ></label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.urlpath','class="span3"') ?><br> <span class="help-inline">http://www.dominio.com/<span id="noticiasyeventos_urltext">demo</span></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_miniatura">Miniatura*: </label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.miniatura',array('class'=>"span3",'maxlength'=>'100')) ?>
+                <a class="btn btn-principal" href="javascript:;"onclick="javascript:ventananueva('/website/archivos','Archivos','/website/archivos');">[Upload imagem]</a>
+                <span class="help-inline">(Copiar la url de la imagen o archivo)</span>
+                <a href="#" id="tam-img" class="btn btn-principal" rel="popover" data-content="Publicidad: 220px x 144px</br>Noticias: 450px x 300px</br>Enlaces: 50px x 50px</br>Ojo: </strong><small>del contenido adecuelo a su conveniencia.</small>" data-original-title="Tamaño de las imagenes a subir">Tamanho</a>
+        <script>
+            $("#tam-img").popover({offset: 10});
+        </script>
+            </div>
+        </div>
+        <div class="form-actions">
+            <a href="#tabcontenido" class="btn linknext">Continuar &raquo;</a>
+        </div>
+    </div>
+
+    <div id="tabcontenido" class="tab-pane">
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_resumen">Resumo: </label><br><br>
+            <div class="controls">
+                <?php echo Form::textarea('noticiasyeventos.resumen',array('class'=>"mceNoEditor span6",'rows'=>'3')) ?>
+                <span class="help-inline">(* Máximo de 76 caracteres)</span>
+            </div>
+        </div>
+        <!--
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_posicion">Posição: </label>
+            <div class="controls">
+                <?php //echo Form::select('noticiasyeventos.posicion', array(1 =>'Destaque',2 =>'Blog',3 =>'Noticias',4 => 'Servicios',5 => 'Treinamentos',6 => 'Parceiros',7 => 'Eventos',8 => 'Planos',9 => 'Equipo')) ?>
+            </div>
+        </div>-->
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_contenido">Conteudo: </label>
+            <div class="controls">
+                <div style="clear:both;"></div>
+                <?php echo Form::textarea('noticiasyeventos.contenido',array('class'=>"tinymce span6",'rows'=>'20','cols'=>'60')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_publicar">Data de inicio: </label>
+            <div class="controls">
+                <?php //echo Calendar::text('fecha','size=10'); ?>
+                <?php //echo Form::date('noticiasyeventos.publicar'); ?>
+                <?php //echo Form::date("fnoticiasyeventos.publicar",null,array("text"=>"true","size"=>"10","maxlength"=>"10"));?>
+                <?php View::helpers('calendar');
+                  echo Calendar::text('noticiasyeventos.publicar');?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_caducar">Data final: </label>
+            <div class="controls">
+                <?php echo Calendar::text('noticiasyeventos.caducar');?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_link">Tiene enlace?: </label>
+            <div class="controls">
+                <?php echo Form::select("noticiasyeventos.link",array("0"=>"No","1"=>"Si"))?>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="noticiasyeventos_linkurl">URL Link: </label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.linkurl','class="span4"') ?><br>
+                <span>Ejemplo:</span><span class="help-inline"> http://www.google.com </span><span> o el simbolo #</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_pantalla">Ventana: </label>
+            <div class="controls">
+                <?php echo Form::select('noticiasyeventos.linkblank', array('_parent' => 'Misma ventana','_blank' => 'Ventana nueva')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_redireccionar">Redirecionar: </label>
+            <div class="controls">
+                <?php echo Form::select('noticiasyeventos.redireccionar',array('0'=>'No','1'=>'Si'),'-Seleccionar-');?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_pantalla">Leyaout: </label>
+            <div class="controls">
+                <?php echo Form::select('noticiasyeventos.pantalla', array('Predeterminada' => 'Predeterminada', 'Normal' => 'Normal', 'Ancho-Total' => 'Ancho-Total')) ?>
+                <a href="#" id="plantilla" class="btn btn-principal" rel="popover" data-content="<strong>Predeterminado:</strong> Corresponde una columna</br><strong>Normal:</strong> Corresponde a dos columna</br><strong>Ancho Total:</strong> Corresponde todo el espacio</br>" data-original-title="Disenho dos Leyaouts">Informação de Leyaout</a>
+                <script>
+                    $("#plantilla").popover({offset: 10});
+                </script>
+            </div>
+        </div>
+        <div class="control-group">
+            <?php if (isset($usuario)) {?>
+                    <?php foreach ($usuario as  $value) {
+                        $nombre = $value->nombres;
+                        //$nombre = $value->id;
+                    }?>
+            <?php } ?>
+            <label class="control-label" for="noticiayeventos_registradopor">Registrado por: </label>
+            <div class="controls">
+                <?php echo Form::text('noticiasyeventos.registradopor','readonly="readonly"',"$nombre") ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="noticiasyeventos_orden">Estado: </label>
+            <div class="controls">
+                <?php echo Form::select('noticiasyeventos.activo',array('1'=>'Activo','0'=>'Desactivo'));?>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label"></label>
+            <div class="controls">
+                <span class="help-inline">* Lembre-se, uma vez criada a notícia ou evento que você pode adicionar mais a partir da lista de páginas </span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a href="#tabmenu" class="btn linknext">&laquo; Regresar</a>
+            <?php echo Form::submit('Guardar datos', 'class="btn btn-principal"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+        </div>
+
+    </div>
+</div>
+        <?php echo Form::close() ?>
+    </div>
+
+</div>
+<?php
+view::partial('tinymce');
+?>
+
+

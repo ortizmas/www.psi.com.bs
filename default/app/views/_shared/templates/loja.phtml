@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php View::helpers('website/libhelper'); ?>
+    <?php View::partial('psite/cssDefault') ?>
+</head>
+<body>
+    <?php View::partial('psite/analyticstracking') ?>
+    <!-- ====================================================
+    header section -->
+    <header class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 header-logo">
+                    <br>
+                    <a href="index.html"><?php echo Html::img('psi/logo.png','Logo',array('class'=>'img-responsive logo')) ?></a>
+                </div>
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                      <div class="container-fluid nav-bar">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <ul class="nav navbar-nav navbar-right">
+                            <li><a class="menu active" href="/#home" >Home</a></li>
+                            <?php LibHelper::MenuHeaderConteudo(); ?>
+                          </ul>
+                        </div>
+                        <!-- /navbar-collapse -->
+                      </div><!-- / .container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end of header area -->
+    <!-- =========================
+       Portfolio
+    ============================== -->
+    <section id="lojavirtual">
+        <div id="content-title">
+            <div class="contact-heading text-center">
+                <div class="container margin-bottom-mediumClinica">
+                    <div class="row margin-bottom-mediumClinica wow fadeInUp">
+                        <h2>
+                            LOJA
+                            <strong class="main-color bold-text">VIRTUAL</strong>
+                        </h2>
+                        <!--<div class="col-md-10 col-md-offset-1">
+                            <div class="subtitle">ESPECIALIDADES - CLINICA</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="thumbnail right-caption col-md-4">
+                <img src="/img/psi/livros/livro-1.jpg" alt="">
+                <div class="caption">
+                    <!--<h4><strong>DORES NAS COSTAS NUNCA MAIS!</strong></h4>
+                    <p>Manual ilustrado de como prevenir e tratar dores nas costas</p>
+                    <p>As dores nas costas acompanham a todos, em fase produtiva ou não. Esse Manual é uma grande arma na prevenção e tratamento das dores nas costas adquiridas no trabalho, em casa ou pelo avançar da idade.</p>-->
+                    <!--<p><a href="#" class="btn btn-primary">Resumo do Livro</a> <a href="#" class="btn">PageSeguro</a></p>-->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Resumo do Livro</button>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="A7353A0A222281F7747B4FADBFEDC2AE" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                </div>
+            </div>
+            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">DORES NAS COSTAS NUNCA MAIS!</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p style="text-align: justify;"><span style="font-size: 12pt;"><strong>Manual ilustrado de como prevenir e tratar dores nas costas</strong></span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;">As dores nas costas acompanham a todos, em fase produtiva ou n&atilde;o. Esse Manual &eacute; uma grande arma na preven&ccedil;&atilde;o e tratamento das dores nas costas adquiridas no trabalho, em casa ou pelo avan&ccedil;ar da idade.</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;">Com uma linguagem clara e objetiva esse Manual levar&aacute; o leitor a:</span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">- &nbsp;conhecer seu corpo e saber por que ocorrem e como reconhecer as poss&iacute;veis raz&otilde;es das dores nas costas;</span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">- &nbsp;a rela&ccedil;&atilde;o das posturas erradas com as dores nas costas e como corrigi-las;</span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">- &nbsp;as medidas preventivas no trabalho e no lar;</span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">- &nbsp;por qu&ecirc; ocorrem dores nas costas no idoso, na gestante, no obeso e durante o estresse.</span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">- &nbsp;Aprender mais de 300 dicas, orienta&ccedil;&otilde;es e corre&ccedil;&otilde;es posturais, respira&ccedil;&atilde;o correta e medidas preventivas para situa&ccedil;&otilde;es cl&iacute;nicas adversas.&nbsp;</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;">Esse Manual conduzir&aacute; voc&ecirc; a compreender a mec&acirc;nica de sua coluna vertebral nas diversas atividades de cada dia, os mecanismos geradores de dor e a melhor maneira de preven&ccedil;&atilde;o sem rem&eacute;dio.</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;">Somente com uma vis&atilde;o global de seu corpo voc&ecirc; poder&aacute;, finalmente, conseguir um tratamento eficaz contra sua dor.</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;"><strong>Formato:</strong></span></p>
+                        <p style="padding-left: 30px; text-align: justify;"><span style="font-size: 12pt;">21x27,5 (maga book)</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;">&nbsp; &nbsp; &nbsp; &nbsp;240 p&aacute;ginas</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12pt;"><strong>capa dura.</strong></span></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Botom do Pague Seguro</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+    </section>
+    <!-- *** end Portfolio *** -->
+    <section>
+        <div class="container">
+            <h1>PAGAMENTOS</h1>
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>CONSULTA:</h5>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO 100-->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="4816668B747428B994E3FFBA314C1F78" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>
+                    R$ 100,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="B47583F0BDBDDF4BB4A42F88894459E7" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 200,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO 500-->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="32809FB446462ABFF40D5F9245FE618B" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 500,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO 1000-->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="D726591E141484B884578FA582D97F17" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 1000,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <strong>Transferencia Bancaria</strong> <br>
+                    Bradesco <br>
+                    AG: 3011-2 <br>
+                    C/C 24852-5 <br>
+                </div>
+                <div class="col-md-3">
+                    <h5>TERAPIA</h5>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO 50-->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="A93B63469D9D7CD664959FAA55BCEFFF" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 50,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="171667A24C4C709884F1AF9B301E3AB2" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 70,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                                        <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="30E0E5D2C6C69BD9941E0F8B61F010F7" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 80,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="36D9932C7E7EBC0114EEBF85C2C39D51" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 85,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                </div>
+                <div class="col-md-3">
+                    <h5>CADASTRO </h5>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="56761C6BCECE91E884751F8A540E7352" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 50,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="92EA279B9C9C5C4EE41D7F97E47FA22C" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 100,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="92EA279B9C9C5C4EE41D7F97E47FA22C" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 200,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="AD8B3B3A7070371444C87FA0F048391C" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 300,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="D45134895A5AE4B7741D9F96FBF88F91" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 500,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="F460AB9DA0A08DD6645A8FB919FD037F" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 1000,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                </div>
+                <div class="col-md-3">
+                    <h5>PROPAGANDA </h5>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="2A6341C00E0E36C9946DFF87724D5E3B" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 250,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+
+
+                    <br><br>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="65C6735C1414681BB48A2FB67679AC4A" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 500,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    <br><br>
+                    <h5><strong>LIVRO DORES NAS COSTAS</strong> </h5>
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                    <input type="hidden" name="code" value="98E2136BD2D2401DD4800F80A6F4D37F" />
+                    <input type="hidden" name="iot" value="button" />
+                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>R$ 80,00
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+
+                    <br><br>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact section starts here -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-caption clearfix">
+                    <div class="contact-heading text-center">
+                        <h2>Contato</h2>
+                    </div>
+                    <div class="col-md-5 contact-info text-left">
+                        <h3>Informação de Contato</h3>
+                        <div class="col-xs-10 col-sm-10 col-md-10">
+                            <div class="info">
+                                <h5>Ligue-nos</h5><br>
+                                <dd>(75) 3414-2018</dd>
+                            </div>
+                            <div class="info">
+                                <h5>Watsapp</h5><br>
+                                <dd>(75) 9 91160476</dd>
+                            </div>
+                            <div class="info">
+                                <h5>Encontre-nos</h5><br>
+                                <dd>Rua Plácido Pita, 50 , Capoeirocu – Cachoeira-BA</dd>
+                            </div>
+                            <div class="info">
+                                <h5>E-mail</h5><br>
+                                <dd>contato@prosaudeintegral.com.br</dd>
+                                <dd>secretaria@prosaudeintegral.com.br</dd>
+                                <dd>administrativo@prosaudeintegral.com.br</dd>
+                            </div>
+                        </div>
+                        <div class="col-md-2 hidden-xs">
+                            <div class="info-detail">
+                                <ul><li><i class="fa fa-phone"></i></li></ul>
+                                <ul><li><i class="fa fa-whatsapp"></i></li></ul>
+                                <ul><li><i class="fa fa-map-marker"></i></li></ul>
+                                <ul><li><i class="fa fa-envelope"></i></li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 contact-form">
+                        <h3>Deixe-nos uma mensagem </h3>
+                        <form class="form">
+                            <input class="name" type="text" placeholder="Digite seu Nome">
+                            <input class="email" type="email" placeholder="Digite seu E-mail">
+                            <input class="phone" type="text" placeholder="Telefone" width="20%">
+                            <input class="watsap" type="text" placeholder="WatsApp">
+                            <textarea class="message" name="message" id="message" cols="30" rows="5" placeholder="Mensagem"></textarea>
+                            <input class="submit-btn" type="submit" value="ENVIAR">
+                            <input class="reset-btn" type="reset" value="LIMPAR">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of contact section -->
+    <div id="newslleter" class="newsletter">
+        <div class="container">
+            <div class="contact-heading text-center">
+                <h3>TRABALHE CONOSCO</h3>
+                <span>Entre em contato para ver as condições.</span>
+                <hr>
+            </div>
+            <div class="row">
+                <form class="form-inline" action="" method="get" style="text-align: center">
+                    <div class="form-group">
+                        <input type="text" name="nome" value="" placeholder="Digite seu nome" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="" value="" placeholder="Digite seu e-mail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="submit-btn" type="submit" value="ENVIAR">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- footer starts here -->
+    <footer class="footer clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 footer-para">
+                    <p>&copy; Pro Saude Integral</p>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- script tags
+    ============================================================= -->
+    <?php View::partial('psite/jsDefault') ?>
+</body>
+</html>

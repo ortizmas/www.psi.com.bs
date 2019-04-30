@@ -1,0 +1,51 @@
+<?
+$areas_id='1';
+		if(Session::has('_NAVAREAID')){
+			$areas_id=Session::get('_NAVAREAID');	
+		}
+?>
+<script>
+
+	function redir(obj){
+		window.location='/website/paginas/ordenarlista/'+obj.options[obj.selectedIndex].value;
+	}
+
+        
+</script>
+		<div class="page-header">
+		    <h1>Ordenar Listado</h1>
+		</div>
+			<div class="tab-content">
+				<div id="es" class="tab-pane active"> 
+					<?php View::content() ?>
+					<?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+					<?php echo Html::linkAction('index', 'Regresar al Listado', array('class'=>'btn btn-info pull-right hidden-phone','style'=>'margin:9px;')) ?>
+					<div class="control-group">
+						<label class="control-label" for="sitios_areas_id">Selecciona un Area</label>
+			            <div class="controls">
+			                <?php echo Form::dbSelect('sitios.areas_id','titulo',array('areas','find',"conditions: sedes_id=".Session::get('SEDEID')),'- Ninguna -','class="span3"') ?>
+			            </div>
+			        </div>
+
+
+					<div class="marco">
+
+					<div id="info"></div>
+					<div id="orden-lista">
+					<ul>
+						<?
+						$img = Html::img('figuras/editar.png');
+						$n=1;
+						foreach($paginas_es as $contenido){
+					  
+						?>
+					  <li id="listItem_<?= $contenido->id ?>" <? if($contenido->contenidos_id=='0'){ echo 'class="handle color"'; }else{ echo 'class="handle"';} ?> style="cursor:move;"><strong><?= $contenido->orden ?></strong> - <?= $contenido->nombre ?> - <?= $contenido->titulo ?> - [ <?= $contenido->urlpath ?> ] - <?php echo Html::link("website/paginas/editar/$contenido->id","Editar","","title: Editar")?></li>
+						<?
+						$n++;
+						}
+						?>
+					</ul>
+					</div>
+				</div>
+			</div>
+	</div>

@@ -1,0 +1,60 @@
+[Sun, 19 Jun 16 12:27:52 -0430][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'areas_id' in 'where clause' al ejecutar <em>"SELECT id,nome,sexo,datanasc,idade,peso,endereco,cidade,email,facebook,telefone,whatsapp,empresa,created_at,modified_in,activo,estado FROM paciente WHERE id=5 and areas_id= 1 LIMIT 1"</em>' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db_base.php(160): DbMySQLi->query('SELECT id,nome,...')
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT id,nome,...')
+#2 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\website\paciente_controller.php(89): KumbiaActiveRecord->find_first('conditions: id=...')
+#3 [internal function]: PacienteController->alterar('5')
+#4 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(PacienteController), Array)
+#5 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#6 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/website/pacien...')
+#7 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#9 {main}
+[Sun, 19 Jun 16 12:31:17 -0430][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'areas_id' in 'where clause' al ejecutar <em>"SELECT id,nome,sexo,datanasc,idade,peso,endereco,cidade,email,facebook,telefone,whatsapp,empresa,created_at,modified_in,activo,estado FROM paciente WHERE id=5 and areas_id= 1 LIMIT 1"</em>' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db_base.php(160): DbMySQLi->query('SELECT id,nome,...')
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT id,nome,...')
+#2 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\website\paciente_controller.php(89): KumbiaActiveRecord->find_first('conditions: id=...')
+#3 [internal function]: PacienteController->alterar('5')
+#4 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(PacienteController), Array)
+#5 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#6 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/website/pacien...')
+#7 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#9 {main}
+[Sun, 19 Jun 16 12:36:52 -0430][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'areas_id' in 'where clause' al ejecutar <em>"SELECT id,nome,sexo,datanasc,idade,peso,endereco,cidade,email,facebook,telefone,whatsapp,empresa,created_at,modified_in,activo,estado FROM paciente WHERE id=5 and areas_id= 1 LIMIT 1"</em>' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db_base.php(160): DbMySQLi->query('SELECT id,nome,...')
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT id,nome,...')
+#2 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\website\paciente_controller.php(89): KumbiaActiveRecord->find_first('conditions: id=...')
+#3 [internal function]: PacienteController->alterar('5')
+#4 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(PacienteController), Array)
+#5 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#6 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/website/pacien...')
+#7 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#9 {main}
+[Sun, 19 Jun 16 12:38:16 -0430][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'areas_id' in 'where clause' al ejecutar <em>"SELECT id,nome,sexo,datanasc,idade,peso,endereco,cidade,email,facebook,telefone,whatsapp,empresa,created_at,modified_in,activo,estado FROM paciente WHERE id=5 and areas_id= 1 LIMIT 1"</em>' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db_base.php(160): DbMySQLi->query('SELECT id,nome,...')
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT id,nome,...')
+#2 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\website\paciente_controller.php(89): KumbiaActiveRecord->find_first('conditions: id=...')
+#3 [internal function]: PacienteController->alterar('5')
+#4 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(PacienteController), Array)
+#5 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#6 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/website/pacien...')
+#7 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#9 {main}
+[Sun, 19 Jun 16 12:40:46 -0430][CRITICAL] exception 'KumbiaException' with message 'Unknown column 'areas_id' in 'where clause' al ejecutar <em>"SELECT id,nome,sexo,datanasc,idade,peso,endereco,cidade,email,facebook,telefone,whatsapp,empresa,created_at,modified_in,activo,estado FROM paciente WHERE id=5 and areas_id= 1 LIMIT 1"</em>' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db_base.php(160): DbMySQLi->query('SELECT id,nome,...')
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(808): DbBase->fetch_one('SELECT id,nome,...')
+#2 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\website\paciente_controller.php(89): KumbiaActiveRecord->find_first('conditions: id=...')
+#3 [internal function]: PacienteController->alterar('5')
+#4 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(PacienteController), Array)
+#5 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#6 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/website/pacien...')
+#7 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#9 {main}

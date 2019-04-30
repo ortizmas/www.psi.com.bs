@@ -1,0 +1,37 @@
+<?
+	header('Content-Type: text/html; charset=UTF-8');
+	View::helpers('website/menu');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="charset=utf-8">
+    <!-- estilos locales -->
+    <link rel="stylesheet" href="/css/website/publicidad/styles.css" type="text/css" media="screen" />
+    <!-- FlexSlider archivos -->
+    <link rel="stylesheet" type="text/css" href="/css/website/publicidad/flexslider.css" />
+
+    <!--Ultimas Publicidad-->
+	<script type="text/javascript" src="/javascript/website/publicidad/jquery.flexslider-min.js"></script>
+	<!-- html5.js - IE  9 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+	<!-- funcion para conectar el FlexSlider -->
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.flexslider').flexslider();
+		});
+	</script>
+</head>
+<section id="">
+		   <div class="flexslider">
+			    <ul class="slides">
+			    	<?
+	                    Menu::publicidad_2();
+	                ?>
+			    </ul>
+			  </div>
+		 </section>
+</html>

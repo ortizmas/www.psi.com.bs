@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JQuery Photo Slider with Semi Transparent Caption</title>
+
+<script type="text/javascript" src="javascript/webradio/slaid/jquery.slide.js"></script>
+<script type="text/javascript" src="javascript/webradio/slaid/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {		
+	//Execute the slideShow
+	slideShow();
+
+});
+
+</script>
+<style type="text/css">
+body{
+	font-family:arial
+}
+
+.clear {
+	clear:both
+}
+
+#gallery {
+	position:relative;
+	height:147px
+}
+	#gallery a {
+		float:left;
+		position:absolute;
+	}
+	
+	#gallery a img {
+		border:none;
+	}
+	
+	#gallery a.show {
+		z-index:500
+	}
+
+	#gallery .caption {
+		z-index:600; 
+		background-color:#000; 
+		color:#ffffff; 
+		height:50px; 
+		width:100%; 
+		position:absolute;
+		bottom:0;
+	}
+
+	#gallery .caption .content {
+		margin:5px
+	}
+	
+	#gallery .caption .content h3 {
+		margin:0;
+		padding:0;
+		color:#1DCCEF;
+	}
+	
+
+</style>
+</head>
+<body>
+<h1>JQuery Photo Slider with Semi Transparent Caption Tutorial</h1>
+<div id="gallery">
+
+	<a href="#" class="show">
+		<img src="uploads/radioupeu/images/flowing-rock.jpg" alt="Flowing Rock" width="220" height="147" title="" alt="" rel="<h3>Flowing Rock</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/grass-blades.jpg" alt="Grass Blades" width="220" height="147" title="" alt="" rel="<h3>Grass Blades</h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/ladybug.jpg" alt="Ladybug" width="220" height="147" title="" alt="" rel="<h3>Ladybug</h3>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
+	</a>
+
+	<a href="#">
+		<img src="uploads/radioupeu/images/lightning.jpg" alt="Lightning" width="220" height="147" title="" alt="" rel="<h3>Lightning</h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/lotus.jpg" alt="Lotus" width="220" height="147" title="" alt="" rel="<h3>Lotus</h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/mojave.jpg" alt="Mojave" width="220" height="147" title="" alt="" rel="<h3>Mojave</h3>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."/>
+	</a>
+		
+	<a href="#">
+		<img src="uploads/radioupeu/images/pier.jpg" alt="Pier" width="220" height="147" title="" alt="" rel="<h3>Pier</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/sea-mist.jpg" alt="Sea Mist" width="220" height="147" title="" alt="" rel="<h3>Sea Mist</h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+	</a>
+	
+	<a href="#">
+		<img src="uploads/radioupeu/images/stones.jpg" alt="Stone" width="220" height="147" title="" alt="" rel="<h3>Stone</h3>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
+	</a>
+
+	<div class="caption"><div class="content"></div></div>
+</div>
+<div class="clear"></div>
+
+<br/><br/>
+<div style="font-size:10px;color:#ccc">Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 3.0 License.</div>
+
+</body>
+</html>

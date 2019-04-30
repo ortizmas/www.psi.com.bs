@@ -1,0 +1,160 @@
+<?php
+    if (!function_exists("cortartexto")) {
+        function cortartexto($texto,$largomax){
+            //inicio
+            $cantidad = strlen(strip_tags($texto));
+                if($cantidad > $largomax){
+                    $contenido = substr(strip_tags($texto), 0, $largomax)."...";
+                }else{
+                    $contenido = strip_tags($texto);
+                }
+            //fin
+            //retorna resultado
+            return $contenido;
+        }
+    }
+?>
+
+<?php
+    if (!$seccion == 'noticiasyeventos') {
+        /*if ($opcion == 'nactuales') {
+            if ($pantallatotal == 'Ancho-Total') {
+                View::template('buscador');?>
+                <h1><?= $nactuales->titulo ?></h1>
+                <div>
+                   <?= $nactuales->subtitulo ?>
+                   <?= $nactuales->resumen ?>
+                   <?= $nactuales->contenido ?>
+                   <? if($nactuales->fuente!=''){ ?>
+                         <span class="fuente">Fuente: <? if($nactuales->fuenteurl!="#"){ echo '<a href="'.$nactuales->fuenteurl.'">'.$nactuales->fuente.'</a>'; }else{ echo $nactuales->fuente; } ?></span>
+                   <? } ?>
+                </div>  
+            <?php
+            }
+            elseif ($pantallatotal == 'Normal') {?>
+                <h1><?= $nactuales->titulo ?></h1>
+                <div class="span17">
+                   <?= $nactuales->subtitulo ?>
+                   <?= $nactuales->resumen ?>
+                   <?= $nactuales->contenido ?>
+                   <? if($nactuales->fuente!=''){ ?>
+                         <span class="fuente">Fuente: <? if($nactuales->fuenteurl!="#"){ echo '<a href="'.$nactuales->fuenteurl.'">'.$nactuales->fuente.'</a>'; }else{ echo $nactuales->fuente; } ?></span>
+                   <? } ?>
+                </div>
+            <?
+            }
+            elseif ($pantallatotal == 'Predeterminada') {?>
+                <h1><?= $nactuales->titulo ?></h1>
+                <div class="seccion1" rel="340">
+                    <?= $nactuales->subtitulo ?>
+                    <?= $nactuales->resumen ?>
+                    <?= $nactuales->contenido ?>
+                    <?
+                    if($nactuales->fuente!=''){ ?>
+                        <span class="fuente">Fuente: <? if($nactuales->fuenteurl!="#"){ echo '<a href="'.$nactuales->fuenteurl.'">'.$nactuales->fuente.'</a>'; }else{ echo $nactuales->fuente; } ?></span>
+                    <?
+                    } ?>
+                </div>
+            <?
+            }
+            else{?>
+                <h1><?echo "Eventos Actuales"?></h1>
+                <div class="span17" >
+                    <?foreach ($nactuales as $key => $value) {?>
+                        <ul class="thumbnails">
+                             <li class="span5">
+                                <div class="thumbnail" style="height: 150px">
+                                   <img src="<?= $value->miniatura?>" alt="" style="height: 30px" >
+                                   <h5 style="width: 130px;"><strong><?=$value->titulo?></strong></h5>
+                                   <div class="caption">
+                                      <font><?=$value->created_at?></font>
+                                      <font><? //$contpalabre = $value->contenido; echo Fecha::contenido_extracto($contpalabre , 20) ;?></font>
+                                      <?if ($value->redireccionar) {?>
+                                         <p><a href="<?= $value->linkurl?>" target="_blank"class=""><font><i class="icon-plus-sign"></i><font class="">Ver más </font></font></a></p>
+                                      <?}else{?>
+                                         <p><a href="/go/noticiasyeventos/nactuales/<?= $value->urlpath?>" class=""><font><i class="icon-plus-sign"></i><font class="">Ver más </font></font></a></p>
+                                      <?}?>
+                                   </div>
+                                </div>
+                            </li>
+                        </ul>
+                    <?
+                    }?>
+               </div>
+            <?
+            }
+        }*/
+        //Fin de Banner
+        if ($opcion == 'eactuales') {
+            if (@$pantallatotal == 'Ancho-Total') {
+                View::template('buscador');?>
+                <h1><?= @$Eventos->titulo ?></h1>
+                <div>
+                    <?= @$Eventos->subtitulo ?>
+                    <?= @$Eventos->resumen ?>
+                    <?= @$Eventos->contenido ?>
+                    <?
+                    if(@$Eventos->fuente!=''){ ?>
+                        <span class="fuente">Fuente: <? if(@$Eventos->fuenteurl!="#"){ echo '<a href="'.@$Eventos->fuenteurl.'">'.@$Eventos->fuente.'</a>'; }else{ echo @$Eventos->fuente; } ?></span>
+                   <?
+                    } ?>
+                </div>
+            <?
+            }
+            elseif (@$pantallatotal == 'Normal') {?>
+                <h1><?= $Eventos->titulo ?></h1>
+                <div class="col-md-12">
+                   <?= $Eventos->subtitulo ?>
+                   <?= $Eventos->resumen ?>
+                   <?= $Eventos->contenido ?>
+                   <? if($Eventos->fuente!=''){ ?>
+                         <span class="fuente">Fuente: <? if($Eventos->fuenteurl!="#"){ echo '<a href="'.$Eventos->fuenteurl.'">'.$Eventos->fuente.'</a>'; }else{ echo $eEventos->fuente; } ?></span>
+                   <? } ?>
+                </div>
+            <?
+            }
+            elseif (@$pantallatotal === 'Predeterminada') {?>
+                <h2><?= $Eventos->titulo ?></h2>
+                <img style="float: left; padding-left: 10px;padding-right: 20px; padding-bottom: 10px;" src="<?= $Eventos->miniatura ?>" alt="">
+                <div class="seccion1" rel="340">
+                   <?= $Eventos->subtitulo ?>
+                   <?= $Eventos->resumen ?>
+                   <?= $Eventos->contenido ?>
+                   <? if($Eventos->fuente!=''){ ?>
+                         <span class="fuente">Fuente: <? if($Eventos->fuenteurl!="#"){ echo '<a href="'.$Eventos->fuenteurl.'">'.$Eventos->fuente.'</a>'; }else{ echo $Eventos->fuente; } ?></span>
+                   <? } ?>
+                </div> 
+            <?
+            }
+            elseif (@$pantallatotal === NULL) {?>
+                <h1><?echo "Eventos Actuales"?></h1>
+                <div class="span17" >
+                   <?
+                   if (isset($Eventos)) {
+                      foreach ($Eventos as $key => $value) {?>
+                      <ul class="thumbnails">
+                         <li class="span5">
+                            <div class="thumbnail" style="height: 150px">
+                               <img src="<?= $value->miniatura?>" alt="" style="height: 30px" >
+                               <h5 style="width: 130px;"><strong><?=$value->titulo?></strong></h5>
+                               <div class="caption">
+                                  <font><?=$value->created_at?></font>
+                                  <font><? //$contpalabre = $value->contenido; echo Fecha::contenido_extracto($contpalabre , 20) ;?></font>
+                                  <p><a href="/go/noticiasyeventos/eactuales/<?= $value->id?>" class=""><font><i class="icon-plus-sign"></i><font class="">Ver más </font></font></a></p>
+                               </div>
+                            </div>
+                        </li>
+                      </ul>
+                      <?}
+                   }?>
+                </div>
+            <?
+            }
+            else{
+                View::template('buscador');?>
+                <h1><?= "No existe lo que esta buscando"?></h1>
+            <?
+            }
+        }
+    }
+

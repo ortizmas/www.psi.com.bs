@@ -1,0 +1,267 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#tabpaginas a[href="#tabmenu"]').tab('show');
+        $('.linknext').click(function(){
+            var href = $(this).attr('href');
+            var tabnext = '#tabpaginas a[href="'+href+'"]';
+            $(tabnext).tab('show');
+        });
+    });
+</script>
+<div class="row">
+    <div class="span12" >
+        
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php echo Form::hidden('pagina.id') ?>
+        <?php echo Form::hidden('contenido.id') ?>
+        
+<ul class="nav nav-tabs" id="tabpaginas">
+    <li class="active"><a href="#tabmenu" data-toggle="tab">Informação Básica</a></li>
+    <li><a href="#tabcontenido" data-toggle="tab">Seção Conteúdo</a></li>
+    <?php echo Html::linkAction('', 'Regresar al Listado', 'class="btn btn-principal"') ?>
+</ul>
+
+<div class="tab-content">
+    
+    <div id="tabmenu" class="tab-pane active"> 
+
+        <div class="control-group">
+            <label class="control-label" for="pagina_referencia_traduccion">Tradução de: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('pagina.referencia_traduccion','nombre',array('contenidomenu','find',"conditions: idiomas_id=1 and areas_id= 1"/*.Session::get('SITEID')*/),'- Ninguna página -') ?><span class="help-inline">(Opcional, só para outro idioma distinto a Portuges)</span>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="pagina_idiomas_id">Idioma: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('pagina.idiomas_id','nombre',array('idiomas','find'),NULL) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_contenidomenu_id">Submenu de: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('pagina.contenidomenu_id','nombre',array('contenidomenu','find',"conditions: areas_id= 1"/*.Session::get('SITEID')*/),'- Seleccione Menu Padre -') ?>
+                <span class="help-inline">Só para um sub Menu</span>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $("#pagina_titulo").keyup(function(){
+                    var titulo = $(this).val();
+                    $("#pagina_nombre").text(titulo);
+                    $("#contenido_titulo").val(titulo);
+                }); 
+                $("#pagina_nombre").keyup(function(){
+                    var titulo = $(this).val();
+                    var stitulo=titulo;
+                    titulo = titulo.replace(/ /g,'-');
+                    titulo = titulo.replace(/\+/g,'-');
+                    titulo = titulo.replace(/\?/g,'');
+                    titulo = titulo.replace(/\¿/g,'');
+                    titulo = titulo.replace(/\¡/g,'');
+                    titulo = titulo.replace(/\!/g,'');
+                    titulo = titulo.replace(/Ñ/g,'N');
+                    titulo = titulo.replace(/ñ/g,'n');
+                    titulo = titulo.replace(/Á/g,'A');
+                    titulo = titulo.replace(/á/g,'a');
+                    titulo = titulo.replace(/É/g,'E');
+                    titulo = titulo.replace(/é/g,'e');
+                    titulo = titulo.replace(/Ê/g,'E');
+                    titulo = titulo.replace(/ê/g,'e');
+                    titulo = titulo.replace(/Í/g,'I');
+                    titulo = titulo.replace(/í/g,'i');
+                    titulo = titulo.replace(/Ó/g,'O');
+                    titulo = titulo.replace(/ó/g,'o');
+                    titulo = titulo.replace(/Ú/g,'U');
+                    titulo = titulo.replace(/ú/g,'u');
+                    titulo = titulo.replace(/\-\-/g,'-');
+                    titulo = titulo.replace(/\-\-\-/g,'-');
+                    titulo = titulo.replace(/\-\-\-\-/g,'-');
+                    titulo = titulo.replace(/\+\-/g,'-');
+                    titulo = titulo.toLowerCase();
+                    $("#pagina_urlpath").val(titulo);
+                    $("#pagina_urltext").text(titulo);
+                });
+                $("#pagina_urlpath").keyup(function(){
+                    var titulo = $(this).val();
+                    $("#pagina_urltext").text(titulo);
+                }); 
+            });
+        </script>
+
+        <div class="control-group">
+            <label class="control-label" for="pagina_titulo">Titulo da página: </label>
+            <div class="controls">
+                <?php echo Form::text('pagina.titulo','class="span4"') ?><span class="help-inline">(Opcional pra outras seções)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_nombre">Nome menú*: </label>
+            <div class="controls">
+                <?php echo Form::text('pagina.nombre',array('class'=>"span3",'maxlength'=>'150')) ?><span class="help-inline">(150 caracteres no máximo)</span>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="pagina_urlpath">URL permanente: <br> < Exemplo ></label>
+            <div class="controls">
+                <?php echo Form::text('pagina.urlpath','class="span3"') ?><br> <span class="help-inline">http://www.dominio.com.br/<span id="pagina_urltext">demo</span></span>
+            </div>
+        </div>
+        <!--<div class="control-group">
+            <label class="control-label" for="pagina_descmenu">Descrição do Menu: </label>
+            <div class="controls">
+                <?php //echo Form::text('pagina.descmenu','class="span4"') ?><span class="help-inline">(Opcional)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_imagem">Miniatura*: </label>
+            <div class="controls">
+                <?php //echo Form::text('pagina.imagem',array('class'=>"span3",'maxlength'=>'100')) ?>
+                <a class="btn btn-principal" href="javascript:;"onclick="javascript:ventananueva('/website/archivos','Arquivos','/website/archivos');">[Upload imagem]</a>
+                <span class="help-inline">(Copiar la url de la imagen o archivo)</span>
+                <a href="#" id="tam-img" class="btn btn-principal" rel="popover" data-content="Publicidad: 220px x 144px</br>Noticias: 450px x 300px</br>Enlaces: 50px x 50px</br>Ojo: </strong><small>del contenido adecuelo a su conveniencia.</small>" data-original-title="Tamaño de las imagenes a subir">Tamanho</a>
+        <script>
+            $("#tam-img").popover({offset: 10});
+        </script>
+            </div>
+        </div>-->
+        <div class="control-group">
+            <label class="control-label" for="pagina_posicion">Posição do Menu: </label>
+            <div class="controls">
+                <?php echo Form::select('pagina.posicion', array('MenuPrincipal' => 'Menu Principal', 'MenuSecundario' => 'Menu Secundário','MenuMultiple' => 'Menu Multiple','MenuLateral'=>'Menu Lateral'),'--Selçõe um Menu--') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_redireccionar">¿Só redirecionar?: </label>
+            <div class="controls">
+                <?php echo Form::select('pagina.redireccionar', array('0' => 'No', '1' => 'Si')) ?>
+                <span class="help-inline">(Só pra os links esternos)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_redireccionarurl">URL Web: </label>
+            <div class="controls">
+                <?php echo Form::text('pagina.redireccionarurl','class="span4"') ?>
+                <span >(Url do link esterno ejemplo:<span class="help-inline">http://www.google.com)</span></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_color">Ordem: </label>
+            <div class="controls">
+                <?php echo Form::text('pagina.orden','class="span1"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="pagina_activo">Ativo(Visible): </label>
+            <div class="controls">
+                <?php echo Form::select('pagina.activo', array('1' => 'Si', '0' => 'No')) ?>
+            </div>
+        </div>
+        <div class="form-actions">
+            <a href="#tabcontenido" class="btn linknext">Continuar &raquo;</a>
+        </div>
+    </div>
+    
+    <div id="tabcontenido" class="tab-pane"> 
+        
+        <div class="control-group">
+            <label class="control-label" for="contenido_titulo">Titulo da Página o Seção: </label>
+            <div class="controls">
+                <?php echo Form::text('contenido.titulo','class="span4"') ?>
+            </div>
+        </div>
+        <!--<div class="control-group">
+            <label class="control-label" for="contenido_subtitulo">Sub Titulo: </label>
+            <div class="controls">
+                <?php //echo Form::text('contenido.subtitulo',array('class'=>"span6")) ?>
+            </div>
+        </div>-->
+        <!--<div class="control-group">
+            <label class="control-label" for="contenido_resumen">Resumo: </label>
+            <div class="controls">
+                <?php //echo Form::textarea('contenido.resumen',array('class'=>"mceNoEditor span6",'rows'=>'3')) ?>
+            </div>
+        </div>-->
+
+        <div class="control-group">
+            <label class="control-label" for="contenido_tipocontenido">Tipo de contenido: </label>
+            <div class="controls">
+                <?php echo Form::select('contenido.tipocontenido', array('contenido' => 'Contenido', 'articulo' => 'Articulo','listado'=>'Listado','catalogo'=>'Catalogo')) ?>
+            </div>
+        </div>
+        <!--<div class="control-group">
+            <label class="control-label" for="contenido_columnas">Columnas: </label>
+            <div class="controls">
+                <?php //echo Form::select('contenido.columnas', array('1' => '1', '2' => '2', '3' => '3', '4' => '4')) ?>
+            </div>
+        </div>-->
+        <div class="control-group">
+            <label class="control-label" for="contenido_contenido">Conteudo: </label>
+            <div class="controls">
+                <div style="clear:both;"></div>
+                <?php echo Form::textarea('contenido.contenido',array('class'=>"tinymce span6",'rows'=>'20','cols'=>'60')) ?>
+            </div>
+        </div>
+
+        <!--<div class="control-group">
+            <label class="control-label" for="contenido_fuente">Fuente: </label>
+            <div class="controls">
+                <?php //echo Form::text('contenido.fuente','class="span4"') ?>
+                <span class="help-inline">(Opcional, Nome no autor do conteudo)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="contenido_fuenteurl">URL fonte: </label>
+            <div class="controls">
+                <?php //echo Form::text('contenido.fuenteurl','class="span4"','http://') ?>
+                <span class="help-inline">(Opcional, link do site do Autor)</span>
+            </div>
+        </div>-->
+        <div class="control-group">
+            <label class="control-label" for="contenido_pantalla">Leyaout: </label>
+            <div class="controls">
+                <?php echo Form::select('contenido.pantalla', array('Predeterminada' => 'Predeterminada','Normal' => 'Normal', 'Ancho-Total' => 'Ancho-Total')) ?>
+                <a href="#" id="plantilla" class="btn btn-principal" rel="popover" data-content="<strong>Predeterminado:</strong> Corresponde una columna</br><strong>Normal:</strong> Corresponde a dos columna</br><strong>Ancho Total:</strong> Corresponde todo el espacio no muestra el menu lateral, para videos, pdf, etc.</br>" data-original-title="Diseño de las plantillas">Informação do leyaout</a>
+                <script>
+                    $("#plantilla").popover({offset: 10});
+                </script>
+            </div>
+        </div>
+        <!--<div class="control-group">
+            <label class="control-label" for="contenido_orden">Orden: </label>
+            <div class="controls">
+                <?php //echo Form::text('contenido.orden','class="span2"') ?>
+            </div>
+        </div>-->
+        <div class="control-group warning">
+            <label class="control-label"></label>
+            <div class="controls">
+                <span class="help-inline">* Recuerda, una vez creada la página con ésta sección de contenido puedes añadir más secciones de contenido desde el listado de páginas </span>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <a href="#tabmenu" class="btn linknext">&laquo; Regresar</a>
+            <?php echo Form::submit('Guardar datos', 'class="btn btn-principal"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+        </div>
+        
+    </div>
+</div>
+        <?php echo Form::close() ?>
+    </div>
+        
+</div>
+<?php
+view::partial('tinymce'); 
+?>
+
+
+

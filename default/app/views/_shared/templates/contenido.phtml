@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<?php View::helpers('website/libhelper'); ?>
+	<?php View::partial('psite/cssDefault') ?>
+	<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>-->
+</head>
+<body>
+<?php View::partial('psite/analyticstracking') ?>
+	<!-- ====================================================
+	header section -->
+	<header class="top-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4 header-logo">
+					<br>
+					<a href="index.html"><?php echo Html::img('psi/logo.png','Logo',array('class'=>'img-responsive logo')) ?></a>
+				</div>
+				<div class="col-md-12">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid nav-bar">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						    <ul class="nav navbar-nav navbar-right">
+						        <li><a class="menu active" href="/#home" >Home</a></li>
+						    	<?php
+						    		LibHelper::MenuHeaderConteudo();
+						    	?>
+						    </ul>
+					    </div>
+					    <!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- end of header area -->
+	<div id="content">
+		<div id="content-title">
+			<div class="contact-heading text-center">
+				<h2><?php echo $titulo ?></h2>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 fadeInRight">
+					<?php View::content() ?>
+				</div>
+				<div class="col-lg-3">
+					<?php if ($opcion =='clinica') { ?>
+						<h2>ESPECIALIDADES</h2>
+            			<?php libHelper::clinicaConteudo() ?>
+					<?php
+					}elseif ($opcion =='dicasdasaude') { ?>
+						<h3>Dicas da Saúde</h3>
+						<ul class="nav nav-pills nav-stacked">
+							<?php libHelper::dicasConteudo() ?>
+						</ul>
+						<h3>Projetos</h3>
+						<ul class="nav nav-pills nav-stacked">
+							<?php libHelper::projetosConteudo() ?>
+						</ul>
+					<?php
+					}elseif ($opcion =='club-de-vantagens' OR $opcion == 'club-vantagens'){ ?>
+						<h2 style="font-size: 1.8em;margin-bottom:14px;">CADASTRO CLIENTE</h2>
+						<?php Libhelper::analiseDaSaude() ?>
+						<div style="text-align: center">
+							<a target="_blank" href="/img/psi/formulario-de-cadastro.pdf" title="CADASTRO SAÚDE E LONGEVIDADE" class="btn btn-primary"><h4>Formulário de Cadastro</h4></a>
+						</div>
+					<?php
+					}elseif ($opcion == 'propaganda'){ ?>
+						<h2 style="font-size: 1.8em;margin-bottom:14px;">CADASTRO CLIENTE</h2>
+						<?php Libhelper::analiseDaSaude() ?>
+						<div style="text-align: center">
+							<a target="_blank" href="/img/psi/formulario-de-cadastro.pdf" title="CADASTRO SAÚDE E LONGEVIDADE" class="btn btn-primary"><h4>Formulário de Cadastro</h4></a>
+						</div>
+					<?php
+					}else { ?>
+						<h2>PROJETOS</h2>
+						<ul class="nav nav-pills nav-stacked">
+							<?php libHelper::projetosConteudo() ?>
+						</ul>
+					<?php
+					} ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Club de Vantagens-->
+	<?php if ($opcion == 'club-de-vantagens' OR $opcion == 'club-vantagens') { ?>
+		<hr>
+		<div class="container">
+			<h1 style="text-align: center">ESPAÇO PROPAGANDA E NEGÓCIOS</h1><br>
+			<a href="/propaganda" title=""><img src="/img/propaganda.jpg" alt="Propaganda e Negocios"></a>
+		</div>
+		<br><br>
+		<div class="container-fluid">
+			<h1 style="text-align: center">EMPRESAS CREDENCIADAS</h1><br>
+			<ul class="thumbnails" id="hover-cap-3col">
+				<?php Libhelper::ClubVantagens() ?>
+			</ul>
+		</div>
+	<?
+	}elseif ($opcion == 'propaganda') { ?>
+		<hr>
+		<div class="container"><br>
+			<a href="/propaganda" title=""><img src="/img/propaganda-top.png" alt="Propaganda e Negocios"></a>
+		</div>
+		<br>
+		<!--CAROUSEL-->
+	<section class="propaganda-top">
+		<div class="container-fluid">
+			<ul id="flexiselDemo2">
+				<?php Libhelper::propagandaTop() ?>
+				<!--<li>
+					<img class="img-responsive" src="images/carousel/1.jpg">	
+				</li>
+				<li>
+					<img class="img-responsive" src="images/carousel/2.jpg">	
+				</li>
+				<li>
+					<img class="img-responsive" src="images/carousel/3.jpg">	
+				</li>
+				<li>
+					<img class="img-responsive" src="images/carousel/4.jpg">	
+				</li>
+				<li>
+					<img class="img-responsive" src="images/carousel/5.jpg">		
+				</li>-->
+			</ul>
+		</div>
+	</section>
+		
+		<!--END CAROUSEL-->
+		<br>
+		<hr>
+		<div class="row">
+			<?php Libhelper::propaganda() ?>
+		</div>
+	<?php
+	} ?>
+	<!-- contact section starts here -->
+	<section id="contact">
+		<?php if ($opcion != 'agende-uma-consulta') {
+			LibHelper::contato();
+		} ?>
+	</section>
+	<!-- end of contact section -->
+	<div id="newslleter" class="newsletter">
+		<div class="container">
+			<div class="contact-heading text-center">
+				<h3>TRABALHE CONOSCO</h3>
+				<span>Entre em contato para ver as condições.</span>
+				<hr>
+			</div>
+			<div class="row">
+				<form class="form-inline" action="" method="get" style="text-align: center">
+					<div class="form-group">
+						<input type="text" name="nome" value="" placeholder="Digite seu nome" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<input type="email" name="" value="" placeholder="Digite seu e-mail" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<input class="submit-btn" type="submit" value="ENVIAR">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- footer starts here -->
+	<footer class="footer clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 footer-para">
+					<p>&copy; Pro Saude Integral</p>
+				</div>
+				<div class="col-xs-6 text-right">
+					<a href=""><i class="fa fa-facebook"></i></a>
+					<a href=""><i class="fa fa-twitter"></i></a>
+					<a href=""><i class="fa fa-skype"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- script tags
+	============================================================= -->
+	<?php View::partial('psite/jsDefault') ?>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    $("input").blur(function(){
+		     if($(this).val() == "")
+		         {
+		             $(this).css({"border-color" : "#F00", "padding": "2px"});
+		         }
+		    });
+		})
+	</script>
+</body>
+</html>

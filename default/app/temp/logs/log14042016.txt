@@ -1,0 +1,15 @@
+[Thu, 14 Apr 16 18:59:07 -0430][CRITICAL] exception 'KumbiaException' with message 'Access denied for user 'root'@'localhost' (using password: YES)' in C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php:127
+Stack trace:
+#0 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\adapters\mysqli.php(205): DbMySQLi->connect(Array)
+#1 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db.php(97): DbMySQLi->__construct(Array)
+#2 C:\xampp\htdocs\www.psi.com.bs\core\libs\db\db.php(64): Db::connect('development')
+#3 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(559): Db::factory(NULL, false)
+#4 C:\xampp\htdocs\www.psi.com.bs\core\libs\kumbia_active_record\kumbia_active_record.php(277): KumbiaActiveRecord->_connect()
+#5 C:\xampp\htdocs\www.psi.com.bs\default\app\controllers\consultorio_controller.php(23): KumbiaActiveRecord->__construct(Array)
+#6 [internal function]: ConsultorioController->crear()
+#7 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(190): ReflectionMethod->invokeArgs(Object(ConsultorioController), Array)
+#8 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\router.php(215): Router::_dispatch()
+#9 C:\xampp\htdocs\www.psi.com.bs\core\kumbia\bootstrap.php(145): Router::execute('/consultorio/cr...')
+#10 C:\xampp\htdocs\www.psi.com.bs\default\app\libs\bootstrap.php(21): require_once('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\www.psi.com.bs\default\public\index.php(81): require('C:\\xampp\\htdocs...')
+#12 {main}

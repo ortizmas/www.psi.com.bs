@@ -1,0 +1,105 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+<div class="row">
+    <div class="span3">
+        <?php View::partial('website/menus/enlaces') ?>
+    </div>
+    <div class="span8 span-derecho" >
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php echo Form::hidden('enlaces.id') ?>
+
+        <div class="control-group">
+            <label class="control-label" for="enlaces_areas_id">Sitio al que pertenece: </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('enlaces.areas_id','nombre',array('areas','find',"conditions: areas_id= 1"/*.Session::get('SEDEID')*/),'- Ninguna -','class="span3" autocomplete="off" required="required"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_idioma_id">Idioma: </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('enlaces.idiomas_id','nombre',array('idiomas','find'),'','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_enlaces_id">Asignar Portifolio: </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('enlaces.portifolio_id','titulo',array('portifolio','find'),'- Ninguna -','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_nombre">Nome*: </label>
+            <div class="controls">
+                <?php echo Form::text('enlaces.nombre','class="span3" autocomplete="off" required="required"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_miniatura">Miniatura*: </label>
+            <div class="controls">
+                <?php echo Form::text('enlaces.miniatura','class="span3"') ?>
+                <a class="btn btn-principal" href="javascript:;" onclick="javascript:ventananueva('/website/archivos','Archivos','/website/archivos');">[Subir imagen]</a>
+                <a href="#" id="tam-img" class="btn btn-principal" rel="popover" data-placement="top" data-content="Clube de Vantagens: 600x400px <br> " data-original-title="Tamaño de las imagenes a subir">Ver tamanho da imagen</a>
+        <script>
+            $("#tam-img").popover({offset: 2});
+        </script>
+                <span class="help-inline">(Copiar a url da imagen subida)</span>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="enlaces_url">URL del sitio: </label>
+            <div class="controls">
+                <?php echo Form::text('enlaces.url','class="span4"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_descripcion">Descrição do enlace: </label>
+            <div class="controls">
+                <?php echo Form::textarea('enlaces.descripcion',array('class'=>"span4",'rows'=>'4')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_plantilla">Ventana: </label>
+            <div class="controls">
+                <?php echo Form::select('enlaces.target',array('_blank' => 'Nova Guia', '_parent' => 'Mesma Guia'));?>
+            </div>
+        </div>
+        <script>
+            $().ready(function(){
+               $('.cambio').change(function(e){
+                    if($('.cambio').val()!=2){//oculta el div1 y muestra los demas
+                        $('#apDiv1').hide();
+                    }else{//oculta el div1 y muestra los demas
+                        $('#apDiv1').show();
+                    }
+                });
+            })
+        </script>
+        <div class="control-group">
+            <label class="control-label" for="enlaces_posicion">Posição*: </label>
+            <div class="controls">
+                <?php echo Form::select('enlaces.posicion', array("" => '- Seleccione una posición -', 'clube-de-vantagens' => 'Clube de Vantagens', 'propaganda' => 'Propaganda', 'propaganda-top' => 'Propaganda Top')) ?>
+            </div>
+        </div>
+        <!--<div id="apDiv1" class="control-group">
+            <label class="control-label" for="enlaces_posicion">Icono*: </label>
+            <div class="controls">
+                <?php //echo Form::text('enlaces.icono','class="span"') ?>
+            </div>
+        </div>-->
+        <div class="control-group">
+            <label class="control-label" for="enlaces_activo">Ativo(Visibel): </label>
+            <div class="controls">
+                <?php echo Form::select('enlaces.activo', array('1' => 'Si', '0' => 'No')) ?>
+
+            </div>
+        </div>
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar dados', 'class="btn btn-principal"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+
+</div>
+

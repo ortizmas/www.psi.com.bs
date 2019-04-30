@@ -1,0 +1,83 @@
+<?php
+	/*echo 'SEC :'.$seccion.'<br>';
+	echo 'OP :'.$opcion.'<br>';
+	echo 'SUBOP :'.$subopcion.'<br>';*/
+?>
+<?php
+//var_dump($contenidos);
+switch ($opcion) {
+	case 'projetos':
+		if (isset($conteudoProjeto) and $conteudoProjeto != false) { ?>
+			<div class="item-large-content">
+				<!--<div class="item-header">
+					<h2 class="pull-left"><?php echo $conteudoProjeto->subtitulo ?></h2>
+					<div class="clearfix"></div>
+				</div>-->
+				<p><?php echo $conteudoProjeto->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+	case 'clinica':
+		if (isset($conteudoProjeto) and $conteudoProjeto != false) { ?>
+			<div class="item-large-content">
+				<!--<div class="item-header">
+					<h2 class="pull-left"><?php echo $conteudoProjeto->subtitulo ?></h2>
+					<div class="clearfix"></div>
+				</div>-->
+				<p><?php echo $conteudoProjeto->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+	case 'dicasdasaude':
+		if (isset($conteudoProjeto) and $conteudoProjeto != false) { ?>
+			<div class="bs-callout bs-callout-info">
+				<!--<div class="item-header">
+					<h2 class="pull-left"><?php echo $conteudoProjeto->subtitulo ?></h2>
+					<div class="clearfix"></div>
+				</div>-->
+				<p><?php echo $conteudoProjeto->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+
+	case 'club-vantagens':
+		if (isset($conteudoProjeto) and $conteudoProjeto != false) { ?>
+			<div class="bs-callout bs-callout-info">
+				<h2><?php echo $conteudoProjeto->subtitulo ?></h2>
+				<!--<img src="<?php //echo $conteudoProjeto->miniatura ?>" alt="<?php //echo $conteudoProjeto->titulo ?>">-->
+				<?php echo $conteudoProjeto->contenido ?>
+			</div>
+		<?
+		}
+		break;
+
+	case 'agende-uma-consulta':
+		if (isset($contenidos) and $contenidos != false) { ?>
+			<div class="item-large-content">
+				<div class="item-header">
+					<h2 class="pull-left"><?php echo $contenidos->subtitulo ?></h2>
+					<div class="clearfix"></div>
+				</div>
+				<p><?php echo $contenidos->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+	default:
+		if (isset($contenidos) and $contenidos != false) { ?>
+			<div class="item-large-content">
+				<div class="item-header">
+					<h2 class="pull-left"><?php echo $contenidos->subtitulo ?></h2>
+					<div class="clearfix"></div>
+				</div>
+				<p><?php echo $contenidos->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+}
+?>
+<?php View::content() ?>

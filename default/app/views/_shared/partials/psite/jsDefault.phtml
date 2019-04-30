@@ -1,0 +1,84 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<?php
+    /**
+     * JS DO TEMPLATE PRINCIPAL
+     */
+    //echo Tag::js('psi/jquery-2.1.1');
+    // echo Tag::js('psi/smoothscroll');
+    
+    //echo '<link rel="stylesheet" href="/libs/bootstrap/js/bootstrap.bundle.min.js">';
+    //echo '<link rel="stylesheet" href="/libs/bootstrap/js/bootstrap.min.js">';
+    //echo Tag::js('psi/bootstrap.min');
+    echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>';
+    echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.3.1/jquery.maskedinput.js"></script>';
+    echo Tag::js('psi/jquery.form.min');
+    //echo Tag::js('psi/custom');
+    echo Tag::js('psi/owl.carousel.min');
+    echo Tag::js('psi/nivo-lightbox.min');
+    echo Tag::js('psi/isotope.pkgd.min');
+     echo Tag::js('psi/jquery.flexisel');
+    echo Tag::js('psi/main');
+?>
+
+<!--<script>
+    $('#myCarousel').carousel({
+      interval: 4000
+    })
+
+    $('.carousel .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+
+      for (var i=0;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+
+        next.children(':first-child').clone().appendTo($(this));
+      }
+    });
+</script>-->
+<!--Flexisel-->
+<!-- <script type="text/javascript">
+        $(function() {
+            $(window).load(function() {
+                $("#flexiselDemo2").flexisel({
+                    visibleItems: 4,
+                    animationSpeed: 1000,
+                    autoPlay: true,
+                    autoPlaySpeed: 3000,            
+                    pauseOnHover: true,
+                    enableResponsiveBreakpoints: true,
+                    responsiveBreakpoints: { 
+                        portrait: { 
+                            changePoint:480,
+                            visibleItems: 2
+                        }, 
+                        landscape: { 
+                            changePoint:640,
+                            visibleItems: 3
+                        },
+                        tablet: { 
+                            changePoint:768,
+                            visibleItems: 4
+                        }
+                    }
+                });
+            });
+        });
+    </script> -->
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=753912504687842";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

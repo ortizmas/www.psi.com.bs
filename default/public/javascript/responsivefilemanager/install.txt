@@ -1,0 +1,19 @@
+/*********************************/
+/* Responsive filemanager Plugin */
+/*    by Andrejus Semionovas     */
+/*  http://pigios-svetaines.eu   */
+/*********************************/
+
+
+Installation instructions:
+
+Download the archive and unzip it to the plugins folder. Activate the plugin. RFM options and settings page located in the File tab by pressing the Responsive Filemanager button.
+
+-------------------------------
+
+Upgrade from early versions to version 2.1:
+
+1. Go to the plugin Settings page and press "Recall" button.
+2. After that press "Integrate" button. Done!
+
+**************************************************************************

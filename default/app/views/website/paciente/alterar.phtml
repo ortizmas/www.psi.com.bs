@@ -1,0 +1,63 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+
+<div class="row">
+    <div class="span12" >
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php echo Form::hidden('paciente.id') ?>
+        <?php //echo Form::text('contenidos.id') ?>
+
+        <div class="tab-content">
+            <div class="control-group">
+                <label class="control-label" for="noticiayeventos_registradopor">Paciente: </label>
+                <div class="controls">
+                    <?php echo Form::text('paciente.nome','readonly="readonly"') ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <?php if (isset($usuario)) {?>
+                        <?php foreach ($usuario as  $value) {
+                            $nombre = $value->nombres;
+                            //$nombre = $value->id;
+                        }?>
+                <?php } ?>
+                <label class="control-label" for="noticiayeventos_registradopor">Registrado por: </label>
+                <div class="controls">
+                    <?php echo Form::text('paciente.registradopor','readonly="readonly"',"$nombre") ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="paciente_orden">Estado: </label>
+                <div class="controls">
+                    <?php echo Form::select('paciente.estado',array('1'=>'Cadastro Gratuito','2'=>'Atendimentos Parciales','3'=>'Atenção ao 100% dos Serviços','4'=>'Inativo'));?>
+                    <?php switch ($paciente->estado) {
+                            case 2:
+                                $img = '/img/figuras/circulo_azul.png';
+                                break;
+                            case 3:
+                                $img = '/img/figuras/circulo_verde.png';
+                                break;
+                            case 4:
+                                $img = '/img/figuras/circulo_amarelo.png';
+                                break;
+                            default:
+                                $img = '/img/figuras/circulo_rojo.png';
+                                break;
+                        } ?>
+                    <img src="<?php echo $img ?>" alt="<?php echo $paciente->estado ?>" width="3%">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a href="/website/paciente/listapacientes" class="btn btn-primary linknext">&laquo; Regresar</a>
+                <?php echo Form::submit('Guardar datos', 'class="btn btn-success"') ?>
+                <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-danger"') ?>
+            </div>
+        </div>
+    </div>
+        <?php echo Form::close() ?>
+</div>
+
+

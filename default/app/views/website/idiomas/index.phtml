@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>Idiomas</h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div>
+<?php
+View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Crear idioma','opciones'=>FALSE));
+$dt = new DataTable($idiomas);
+$dt->addHeaders('Code','Idioma', 'Charset', 'Estado', 'Editar', 'Eliminar');
+$dt->addFields('code','nombre', 'charset');
+$dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/idiomas/activar|website/idiomas/desactivar', '', 'activo');
+$dt->imgLink('figuras/editar.png', 'website/idiomas/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'website/idiomas/eliminar', '', '¿Realmente desea eliminar este idioma?');
+echo $dt->render('class="table table-bordered table-striped"');
+
+?>
+

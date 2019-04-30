@@ -1,0 +1,21 @@
+
+<div class="page-header">
+    <h1>Informação por Grupos de Usuario</h1>
+</div>
+<div id="mensajes_flash" >
+    <?php View::content() ?>
+</div>
+
+<?php
+View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Criear Informaçoes','opciones'=>FALSE));
+?>
+<?php
+  $dt = new DataTable($informacao);
+  $dt->addHeaders('Id','Usuario ID','Nome','Data de Criação','Estado','Alterar', 'Excluir');
+  $dt->addFields('id','usuarios_id','nome','created_at','tipo');
+  $dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/informacoes/activar|website/informacoes/desactivar', '', 'activo');
+  $dt->imgLink('figuras/editar.png', 'website/informacoes/editar');
+  $dt->imgLinkConfirm('figuras/eliminar.png', 'website/informacoes/eliminar', '', '¿Realmente desea eliminar este sitio?');
+  echo $dt->render('class="table table-bordered table-striped"');
+?>
+

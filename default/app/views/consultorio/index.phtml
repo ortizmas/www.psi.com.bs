@@ -1,0 +1,406 @@
+<?php
+    View::content();
+?>
+<br>
+<p style="text-align: justify">As informações pessoais contidas neste formulário são confidenciais e as informações obtidas não aparecerão online. Postaremos orientações de como prevenir ou remediar determinado problema, pensando atender determinado problema da coletividade, pois não há possibilidade de um acompanhamento ser individual. As pessoas que desejarem um atendimento individual e personalizado, deverá agendar uma consulta no consultório. </p><br>
+<div class="bs-callout bs-callout-info">
+    <form  class="form-horizontal" action="/consultorio/crear" method="post" role="form" id="Formulario">
+        <div class="row control-group">
+            <div class="col-md-8">
+                <?php echo Form::text('paciente.nome', 'class="col-md-8", placeholder="Nome", required') ?>
+            </div>
+            <div class="col-md-4">
+                Masculino:
+                <?php echo Form::radio("paciente.sexo", 'masculino',array('required'=>'required')); ?>
+                Femenino:
+                <?php echo Form::radio("paciente.sexo", 'femenino',array('required'=>'required')); ?>
+            </div>
+        </div>
+        <br>
+        <div class="row control-group">
+            <div class="col-md-6">
+                <div class="col-md-4">
+                    Data de Nacimento:
+                </div>
+                <div class="col-md-4">
+                    <?php echo Form::date('paciente.datanasc', 'class="col-md-4", placeholder="Data de Nasc.:"') ?>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <?php echo Form::text('paciente.idade', 'class="col-md-4", placeholder="Idade"') ?>
+            </div>
+            <div class="col-md-2">
+                <?php echo Form::text('paciente.peso', 'class="col-md-4", placeholder="Peso"') ?>
+            </div>
+            <div class="col-md-2">
+                <?php echo Form::text('paciente.altura', 'class="col-md-4", placeholder="Altura"') ?>
+            </div>
+        </div>
+        <br>
+        <div class="row control-group">
+            <div class="col-md-6">
+                <?php echo Form::text('paciente.endereco', 'class="col-md-6", placeholder="Endereço"') ?>
+            </div>
+            <div class="col-md-6">
+                <?php echo Form::text('paciente.cidade', 'class="col-md-6", placeholder="Cidade"') ?>
+            </div>
+        </div>
+        <br>
+        <div class="row control-group">
+            <div class="col-md-6">
+                <?php echo Form::text('paciente.email', 'class="col-md-6", placeholder="E-mail"') ?> <!--,required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"-->
+            </div>
+            <div class="col-md-6">
+                <?php echo Form::text('paciente.facebook', 'class="col-md-6", placeholder="Facebook"') ?>
+            </div>
+        </div>
+        <br>
+        <div class="row control-group">
+            <div class="col-md-4">
+                <?php echo Form::text('paciente.cpf', 'class="col-md-6", placeholder="CPF: 000.000.000-00" , pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite o CPF no formato nnn.nnn.nnn-nn" oninvalid="return cpf_incorreto(this);"') ?>
+            </div>
+            <div class="col-md-4">
+                <?php echo Form::text('paciente.telefone', 'class="col-md-6", placeholder="Telefone"') ?>
+            </div>
+            <div class="col-md-4">
+                <?php echo Form::text('paciente.whatsapp', 'class="col-md-6", placeholder="WhatsApp"') ?>
+            </div>
+        </div>
+        <br>
+        <div class="row control-group">
+            <div class="col-md-12">
+                <?php echo Form::text('paciente.empresa', 'class="col-md-6", placeholder="Empresa ou Localidade" required') ?>
+                <?php echo Form::hidden('paciente.activo','class="col-md-6", placeholder="Empresa ou Localidade"','1') ?>
+            </div>
+        </div>
+        <br>
+        <h2>PERFIL DA SAÚDE</h2>
+        <b>você pode marcar uma ou mais opções</b>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.1','Alergias','',false);  ?> Alergias
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.2','Ansiedade','',false);  ?> Ansiedade
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.3','Dor lombar','',false);  ?> Dor lombar
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.4','Hérnia de disco','',false);  ?> Hérnia de disco
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.5','Alterações Hormonais','',false);  ?> Alterações Hormonais
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.6','Dor no nervo ciático','',false);  ?> Dor no nervo ciático
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.7','Artrite','',false);  ?> Artrite
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.8','Bursite','',false);  ?> Bursite
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.9','Câncer','',false);  ?> Câncer
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.10','Esclerose','',false);  ?>  Esclerose
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.11','Colesterol','',false);  ?> Colesterol
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.12','Crise existencial','',false);  ?> Crise existencial
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.13','Depressão','',false);  ?> Depressão
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.14',' Mioma','',false);  ?> Mioma
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.15','Problemas no relacionamento com Filhos','',false);  ?> Problemas no relacionamento com Filhos
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.16','Endometriose','',false);  ?> Endometriose
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <?php echo Form::check('perfildasaude.17','Insônia','',false);  ?> Insônia
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--columno dos-->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.18','Enxaqueca','',false);  ?> Enxaqueca
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.19','Obesidade','',false);  ?> Obesidade
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.20','Dor no pescoço','',false);  ?> Dor no pescoço
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.21',' Artrose','',false);  ?> Artrose
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.22','Escoliose','',false);  ?> Escoliose
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.23','Cálculo vesicular','',false);  ?> Cálculo vesicular
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.24','Gastrite','',false);  ?> Gastrite
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.25','H.Pilore','',false);  ?> H.Pilore
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.26','Alzheimer','',false);  ?> Alzheimer
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.27','Intestino Preso','',false);  ?>  Intestino Preso
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.28','Diabético','',false);  ?> Diabético
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.29','Mal de Parkinson','',false);  ?> Mal de Parkinson
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.30','Menopausa ou Andropausa','',false);  ?> Menopausa ou Andropausa
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.31','Estresse','',false);  ?> Estresse
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.32','Problemas no relacionamento familiar','',false);  ?> Problemas no relacionamento familiar
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <?php echo Form::check('perfildasaude.33','Alteração de humor','',false);  ?> Alteração de humor
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <?php echo Form::text('outros','placeholder="Outros"');  ?>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="submit" class="btn btn-default" name="enviar" value="enviar">
+            </div>
+        </div>
+    </form>
+</div>
+<script type='text/javascript'>$('#Formulario')[0].reset();</script>
+<script>
+   function cpf_incorreto(el) {
+      alert("O valor " + el.value + " não é um CPF, Formato: 000.000.000-00");
+      return false;
+   }
+</script>

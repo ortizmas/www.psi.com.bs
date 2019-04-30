@@ -1,0 +1,59 @@
+<div class="page-header">
+	<h1><?php echo $titulo;?></h1>
+</div>
+<div class="row">
+		<div class="span3">
+				<?php View::partial('website/menus/carpetas') ?>
+		</div>
+		<div class="span8 span-derecho form-horizontal" >
+			<div id="res-form-ajax"><?php View::content() ?></div>
+			<?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+			<?php //$id_carpeta = Form::text('carpetas.id') ; ?>
+			<div class="control-group">
+				<label class="required">Eição do Setor<em>*</em></label>
+				<?php echo Form::dbSelect('carpetas.areas_id','nombre',array('areas','find',"conditions: id= 1"/*.Session::get('SITEID')*/),'- Ninguna -','class="span3" autocomplete="off" autofocus="autofocus"  required="required" maxlength="30" onkeypress="return permite(event, \'car\')"') ?>
+			</div>
+			<div class="control-group">
+				<label class="required">Tipo  <em>*</em></label>
+				<?php echo Form::text('carpetas.tipo', 'autocomplete="off" autofocus="autofocus"  required="required" maxlength="30" onkeypress="return permite(event, \'car\')"') ?>
+			</div>
+			<div class="control-group">
+				<label class="required">Nome  <em>*</em></label>
+				<?php 
+				if (isset($carpetas->id) != '') {
+					echo Form::text('carpetas.nombre', 'readonly="readonly"');
+				}else{
+					echo Form::text('carpetas.nombre', 'autocomplete="off" autofocus="autofocus"  required="required" maxlength="30" onkeypress="return permite(event, \'car\')"');
+				}
+				?>
+			</div>
+			<!--<div class="control-group">-->
+				<?php if (isset($usuario)) {?>                
+										<?php foreach ($usuario as  $value) {
+												$nombre = $value->nombres;
+												$id = $value->id;
+										}?>
+						<?php } ?>
+				<!--<label class="required">Id Usuarios <em>*</em></label>-->
+				<?php echo Form::hidden('carpetas.usuarios_id','readonly="readonly" value="$id"',"$id") ?>
+				<?php //echo Form::text('carpetas.usuarios_id', 'autocomplete="off" autofocus="autofocus"  required="required" maxlength="30" onkeypress="return permite(event, \'car\')"') ?>
+			<!--</div>-->
+			<div class="control-group">
+				<label class="required">Descrição  <em>*</em></label>
+				<?php echo Form::textarea('carpetas.descripcion', 'autocomplete="off" autofocus="autofocus"  required="required" onkeypress="return permite(event, \'car\')"') ?>
+			</div>
+			<div class="control-group">
+				<label class="required">Ativo <em>*</em></label>
+				<?php echo Form::select('carpetas.activo',array('1' => 'Si', '0' => 'No'), 'autocomplete="off" required="required" maxlength="12" onkeypress="return permite(event, \'num_car\')"') ?>
+			</div>
+			<div class="form-actions">
+					<?php echo Form::submit('Guardar dados', 'class="btn btn-principal"') ?>
+					<?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+			</div>
+ <?php echo Form::close() ?>
+	</div>
+</div>
+ 
+
+
+ 

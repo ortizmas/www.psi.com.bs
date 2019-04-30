@@ -1,0 +1,361 @@
+<?php
+	header('Content-Type: text/html; charset=UTF-8');
+	View::helpers('webradio/menu');
+?>
+<!DOCTYPE HTML>
+<html lang="es-ES" dir="ltr" class="no-js" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="content-language" content="es"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--<link rel="stylesheet" type="text/css" media="all" href="/css/webradio/docs.css" />-->
+	<link rel="stylesheet" type="text/css" media="all" href="/css/webradio/style.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/css/webradio/media-queries.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/css/webradio/jquery.bubbleSlideshow.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/javascript/webradio/player/mediaelementplayer.css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
+
+	<!--Ultimas noticias-->
+	<link rel="stylesheet" type="text/css" href="/css/webradio/demo.css" />
+	<link rel="stylesheet" type="text/css" href="/css/webradio/elastislide.css" />
+	<link rel="stylesheet" type="text/css" href="/css/webradio/custom.css" />
+	<script src="javascript/webradio/noticias/modernizr.custom.17475.js"></script>
+	<!-- inicio programacion-->
+	<link href="/css/webradio/programacion/movingboxes.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<link href="css/movingboxes-ie.css" rel="stylesheet" media="screen">
+	<![endif]-->
+
+	<!-- Required script -->
+	<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script src="/javascript/webradio/programacion/jquery.movingboxes.js"></script>
+
+	<!-- Demo only -->
+	<link href="/css/webradio/programacion/demo2.css" rel="stylesheet">
+	<script src="/javascript/webradio/programacion/demo.js"></script>
+	
+	<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="webradio/ie8.css" media="all" />
+	<![endif]-->
+	<!--[if IE 9]>
+	<link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
+	<![endif]-->
+	<!--<script type="text/javascript" src="style/js/jquery-1.7.2.min.js"></script>-->
+	<!--<script type="text/javascript" src="javascript/webradio/jquery-1.7.2.min.js"></script>-->
+	<script type="text/javascript" src="javascript/webradio/noticias/jquery.min.js"></script>
+	<script type="text/javascript" src="javascript/webradio/ddsmoothmenu.js"></script>
+	<script type="text/javascript" src="javascript/webradio/retina.js"></script>
+	<script type="text/javascript" src="javascript/webradio/selectnav.js"></script>
+	<script type="text/javascript" src="javascript/webradio/jquery.masonry.min.js"></script>
+	<script type="text/javascript" src="javascript/webradio/jquery.fitvids.js"></script>
+	<script type="text/javascript" src="javascript/webradio/jquery.backstretch.min.js"></script>
+	<script type="text/javascript" src="javascript/webradio/mediaelement.min.js"></script>
+	<script type="text/javascript" src="javascript/webradio/mediaelementplayer.min.js"></script>
+	<script type="text/javascript" src="javascript/webradio/jquery.dcflickr.1.0.js"></script>
+	<script type="text/javascript" src="javascript/webradio/twitter.min.js"></script>
+
+	<script type="text/javascript" src="javascript/webradio/slaid/jquery.slide.js"></script>
+<style>
+		/* Overall & panel width defined using css in MovingBoxes version 2.2.2+ */
+		#slider-one { width: 300px; }
+		#slider-one > li { width: 150px; }
+
+		#slider-two { width: 410px; }
+		#slider-two > div { width: 410px; }
+
+
+	</style>
+<script type="text/javascript">
+	$.backstretch("img/themes/bg/1.jpg");
+</script>
+</head>
+<body>
+<div class="scanlines"></div>
+
+<!-- Begin Header -->
+<!-- End Header -->
+
+<!-- Begin Wrapper -->
+<div class="wrapper">
+	<!--Begin rows-->
+	<div class="box">
+		<div class="row">
+			<div class="span3">
+					<div class="frame">
+						<!--<ul class="slideShow"></ul>-->
+							<?
+	                      		View::partial('webradio/publicidad');
+							//Menu::publicidad();
+	                  		?>
+			                <!--<div class="caption"><div class="content"></div></div>-->
+			                <br/>
+			        </div>
+			</div>
+			<div class="span6">
+				<div class="frame">
+					<a href="#">
+						<img src="img/webradio/logo-radio.png" alt="" />
+					</a>
+				</div>
+				<!-- Begin Header -->
+				<div class="header-wrapper opacity">
+					<div class="header">
+						<!-- Begin Menu -->
+						<div id="menu-wrapper">
+							<div id="menu" class="menu">
+								<ul id="tiny">
+									<li><a href="/">Inicio</a></li>
+									<li class="active"><a href="#">Programacion</a>
+										<!--<ul>
+											<li><a href="post.html">Blog Post</a></li>
+										</ul>-->
+									</li>
+									<li><a href="#">Tu celular</a>
+										<!--<ul>
+											<li><a href="page-with-sidebar.html">Page With Sidebar</a></li>
+											<li><a href="full-width.html">Full Width</a></li>
+										</ul>-->
+									</li>
+									<li><a href="#">Contactanos</a>
+										<!--<ul>
+											<li><a href="typography.html">Typography</a></li>
+											<li><a href="columns.html">Columns</a></li>
+										</ul>-->
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- End Menu -->
+					</div>
+				</div>
+				<!-- End Header -->
+			</div>
+			<div class="span3">
+				<div class="">
+					<div class="frame">
+						<? //Menu::publicidad_2();
+							View::partial('webradio/publicidad');
+						?>
+						<br/>
+					</div>
+	    		</div>
+	    	</div>
+	    </div>
+		<!--End row-->
+	</div>
+	<!--End box-->
+	<!--Begin box Radio-->
+	<div class="box">
+		<div class="row">
+			<div class="span9">
+				<iframe style="border-top: 40px solid #000000; border-left: 10px solid #000000; border-right: 10px solid #000000; border-bottom: 10px solid #000000; border-radius:10px" width="680" height="510" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" src="http://chatroll.com/embed/chat/radio-peruana-union?id=pklvSzVIz28&platform=html&w=$0"></iframe>
+			</div>
+			<div class="span3">
+				<div class="">
+					<!--Begin Noticias-->
+					<h5 class="widget-title">Ultimas Noticias</h5>
+					<div class="container demo-4">
+			            <div class="main">
+							<div class="gallery">
+								<!-- Elastislide Carousel -->
+								<ul id="carousel" class="elastislide-list">
+									<li data-preview="uploads/radioupeu/noticias/large/4.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/4.jpg" alt="image04" /></a></li>
+									<li data-preview="uploads/radioupeu/noticias/large/5.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/5.jpg" alt="image05" /></a></li>
+									<li data-preview="uploads/radioupeu/noticias/large/7.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/7.jpg" alt="image07" /></a></li>
+									<li data-preview="uploads/radioupeu/noticias/large/11.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/11.jpg" alt="image11" /></a></li>					
+									<li data-preview="uploads/radioupeu/noticias/large/14.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/14.jpg" alt="image14" /></a></li>
+									<li data-preview="uploads/radioupeu/noticias/large/15.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/15.jpg" alt="image15" /></a></li>
+									<li data-preview="uploads/radioupeu/noticias/large/16.jpg"><a href="#"><img src="uploads/radioupeu/noticias/small/16.jpg" alt="image16" /></a></li>
+								</ul>
+								<!-- End Elastislide Carousel -->
+								<div class="image-preview">
+									<img id="preview" src="uploads/radioupeu/noticias/large/4.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<!--End Noticias-->
+					<div id="third" class="widget-area">
+						<div id="example-widget-3" class="widget example">
+							
+							<ul class="post-list">
+							  	<li> 
+							  		<div class="frame">
+							  			<!--width="30px" height="30px" style="border-top:3px solid #F90;"-->
+							  			<a href="#"><img src="img/themes/art/s1.jpg" width="50px" height="50px" /></a>
+							  		</div>
+									<div class="meta">
+									    <h6><a href="#">Charming Winter</a></h6>
+									    <em>28th Sep 2012</em>
+								    </div>
+								</li>
+								<li> 
+							  		<div class="frame">
+							  			<a href="#"><img src="img/themes/art/s2.jpg" width="50px" height="50px"/></a>
+							  		</div>
+									<div class="meta">
+									    <h6><a href="#">Trickling Stream</a></h6>
+									    <em>5th Sep 2012</em>
+								    </div>
+								</li>
+								<li> 
+							  		<div class="frame">
+							  			<a href="#"><img src="img/themes/art/s3.jpg" width="50px" height="50px"/></a>
+							  		</div>
+									<div class="meta">
+									    <h6><a href="#">Morning Glory</a></h6>
+									    <em>26th Sep 2012</em>
+								    </div>
+								</li>
+								<li> 
+							  		<div class="frame">
+							  			<a href="#"><img src="img/themes/art/s3.jpg" width="50px" height="50px"/></a>
+							  		</div>
+									<div class="meta">
+									    <h6><a href="#">Morning Glory</a></h6>
+									    <em>26th Sep 2012</em>
+								    </div>
+								</li>
+							</ul>
+							
+						</div>
+					</div><!-- #third .widget-area -->
+	    		</div>
+	    	</div>
+	    </div>
+		<!--End row-->
+	</div>
+	<!--End bok Radio-->
+	<!-- Begin row -->
+	<div class="row">
+		<div class="span7">
+			<!-- Begin Video Format -->
+			<div class="post format-video box"> 
+				<div class="">
+					<div id="MediaPlayerTAB">
+		      			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
+		   			</div>
+		   			<script type="text/javascript" src="http://streamradiohd.com/mediacp/system/misc/flvplayer/swfobject.js"></script>
+		   			<script type="text/javascript">
+		      
+						var flashvars = {
+							flvpFolderLocation: "http://streamradiohd.com/mediacp/system/misc/flvplayer/flvplayer/", 
+							flvpVideoSource: "rtmp://streamradiohd.com/8360,8360", 
+							flvpWidth: "450", 
+							flvpHeight: "338",
+							flvpAutoStartMovie: false
+						};
+							      
+						var params = {
+							menu: "true", 
+							allowfullscreen: "true"
+						};
+						swfobject.embedSWF("http://streamradiohd.com/mediacp/system/misc/flvplayer/FLVplayer_Custom.swf", "MediaPlayerTAB", "450", "338", "9.0.0", "http://streamradiohd.com/mediacp//system/misc/flvplayer/expressInstall.swf", flashvars, params);                     
+					</script>
+				</div>
+				<div class="details">
+					<span class="icon-video"><a href="#">September 13, 2012</a></span>
+					<span class="likes"><a href="#" class="likeThis">18</a></span>
+					<span class="comments"><a href="#">1</a></span>
+				</div>
+			</div>
+			<!-- End Video Format -->
+		</div>
+		<div class="span7">
+			<!-- Begin Audio Format -->
+			<div class="post format-audio box last"> 
+				<div class="details">
+					<span class="icon-audio"><a href="#">RADIO UNIVERSIDAD PERUANA UNIÓN</a></span>
+					<span class="likes"><a href="#" class="likeThis">VIVO</a></span>
+					<span class="comments"><a href="#">EN</a></span>
+				</div> 
+				<div class="audio-wrapper">
+					<div class="vinyl">
+						<dl>
+							<dt class="art"> 
+								<img class="highlight" src="img/themes/vinyl.png" />
+								<img src="img/themes/art/artwork.png" alt="" />
+							</dt>
+						</dl>	
+					</div>
+					<div class="audio">
+						<iframe border="0" frameborder="NO" scrolling="no" width="330" height="350" src="http://www.capahost.com/eplayers/kfhdkt_fgj_fhd/hostingadventista/radioperuanaunion/index.html"></iframe>
+					</div>
+						<dd class="song"><div class="icon-song"></div> Om Du Möter Varg</dd>
+						<dd class="artist"><div class="icon-artist"></div> Detektivbyrån</dd>
+						<dd class="album"><div class="icon-album"></div> Wermland</dd>
+				</div>
+			</div>
+			<!-- End Audio Format --> 	
+		 	<!-- Begin Standard Format -->
+			<div class="post format-standard box"> 
+				<h2>REDES SOCIALES</h2>
+				<ul class="social">
+					<li><a class="rss" href="#"></a></li>
+					<li><a class="facebook" href="#"></a></li>
+					<li><a class="twitter" href="#"></a></li>
+					<li><a class="pinterest" href="#"></a></li>
+					<li><a class="dribbble" href="#"></a></li>
+					<li><a class="flickr" href="#"></a></li>
+					<li><a class="linkedin" href="#"></a></li>
+				</ul>
+			</div>
+			<!-- End Standard Format --> 
+		</div>
+	</div>
+	<!--End row-->
+</div>
+
+<!-- End Wraper -->
+<div class="site-generator-wrapper">
+	<div class="site-generator">Copyright UPeU 2013. Desarrollado por <a href="http://radio.upeu.edu.pe">Radio Upeu</a>. Todo los derechos reservados.
+		<p>Radio Peruana Unión – EAP. Comunicaciones Telf.: 01-6186300 Anexo: 3044 - RPC.: 989249789 Correo: radioperuanaunion@upeu.edu.pe</p>
+	</div>
+	
+</div>
+<!-- End Footer --> 
+	
+<script type="text/javascript" src="javascript/webradio/scripts.js"></script>
+<script type="text/javascript" src="javascript/webradio/noticias/jquery.elastislide.js"></script><!--Noticias-->
+<!--Begin Noticias-->
+<script type="text/javascript">
+	var current = 0,
+	$preview = $( '#preview' ),
+	$carouselEl = $( '#carousel' ),
+	$carouselItems = $carouselEl.children(),
+		carousel = $carouselEl.elastislide( {
+			current : current,
+			minItems : 4,
+			onClick : function( el, pos, evt ) {
+				changeImage( el, pos );
+				evt.preventDefault();
+			},
+			onReady : function() {
+				changeImage( $carouselItems.eq( current ), current );
+			}
+		} );
+
+	function changeImage( el, pos ) {
+		$preview.attr( 'src', el.data( 'preview' ) );
+		$carouselItems.removeClass( 'current-img' );
+		el.addClass( 'current-img' );
+		carousel.setCurrent( pos );
+	}
+</script>
+<!-- End Noticias-->
+<script type="text/javascript">
+		$(document).ready(function() {		
+			//Execute the slideShow
+			slideShow();
+
+		});
+		$(document).ready(function() {		
+			//Execute the slideShow
+			slideShow2();
+
+		});
+	</script>
+</body>
+</html>

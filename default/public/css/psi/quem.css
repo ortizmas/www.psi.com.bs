@@ -1,0 +1,246 @@
+.hero-area{
+	background: url("../../img/headers/quem2.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: 0 auto;
+	height: auto;
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 150px;
+}
+.title-small {
+    color: #2093BF !important;
+}
+.title-small {
+    font-size: 38px;
+    color: #3f51b5;
+    margin-bottom: 30px;
+    line-height: 50px;
+}
+
+@media (min-width: 1200px){
+	.hero-area {
+		padding: 100px 0;
+		background-attachment: fixed;
+		height: 100vh;
+	}
+}
+
+.equipe-diretoria-s{
+	font-size: 9px !important;
+	font-weight: normal;
+}
+
+.equipe-s-box{
+	/*padding-left: 2.5px !important;*/
+	/*padding-right: 2.5px !important;*/
+}
+
+.clear-s{
+	clear: both;
+}
+
+.target-big{
+	display: none;
+}
+
+.target-small{
+	display: inherit;
+}
+@media(min-width: 768px){
+
+	.target-big{
+		display: inherit;
+	}
+
+	.target-small{
+		display: none;
+	}
+
+	.clear-s{
+		clear: none;
+	}
+
+	.equipe-s-box{
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+	.equipe-centro{
+		padding: 0px !important;
+	}
+	.equipe-left{
+		padding-right: 0px !important;
+		padding-left: 0px !important;
+	}
+	.equipe-right{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+}
+
+@media (min-width: 540px) and (max-width: 767px){
+	.equipe-diretoria-s{
+		font-size: 12px !important;
+	}
+}
+
+@media(min-width: 1025px){
+	.equipe-diretoria-s{
+		font-size: 12px !important;
+	}
+
+	.mission-text{
+		font-size: 22px;
+		font-weight: 100;
+		line-height: 27px;
+		padding-bottom: 40px;
+	}
+}
+
+.equipe-diretoria{
+	font-weight: normal;
+}
+
+.avatar, .avatar-2{
+	width: 100%;
+	border-radius: 200px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+@media (min-width: 365px) and (max-width: 425px) {
+	.equipe-s-box {
+		padding: 0 15px;
+	}
+	.avatar, .avatar-2 {
+		max-width: 90%;
+		margin: 0 auto!important;
+	}
+	element {
+		max-height: 100px;
+	}
+
+	.row1 {
+		/*padding: 0 10px;*/
+		display: flex;
+	flex-flow: column;
+	}
+}
+@media (max-width: 364px) {
+	.ha {
+		max-width: 100%;
+	}
+}
+@media (min-width: 426px) and (max-width: 767px){
+	.tablet-padding{
+		padding: 0px 10vw !important;
+	}
+	.tablet-padding-s{
+		padding: 0px 5vw !important;
+	}
+}
+
+.no-padding{
+	padding: 0px !important;
+}
+
+.img-responsive{
+	width: 100%;
+	/*max-width: 283px !important;*/
+}
+
+.mission-text-box{
+	margin-top: 40px;
+}
+
+.vision-img{
+	float: right;
+	margin: 0px !important;
+}
+
+.parceiros-img{
+	width: 100%;
+}
+
+.valores{
+	margin-bottom: 0px;
+}
+
+.oriental{
+	margin-bottom: 15px;
+}
+
+.honra{
+	color: #5691BA;
+}
+
+@media (max-width: 767px) {
+	.hide-sm{
+		display: none;
+	}
+	.mission-text-box{
+		margin-top: 0 !important;
+	}
+}
+
+.margin-auto{
+	margin: auto;
+}
+
+.konami_in{
+}
+.konami_out{
+    display: none;
+}
+
+.depoimentos-title{
+	color: #2093BF;
+}
+.btn-border-2{
+	border: 1px solid #2093BF;
+	color: #2093BF !important;
+}
+
+#depoimentos{
+	padding-bottom: 0 !important;
+}
+#dp-row{
+	padding-bottom: 50px !important;
+}
+.carousel-indicators {
+	position: absolute;
+	bottom: -40px;
+}
+/*.carousel-inner {*/
+	/*height: 130px;*/
+/*}*/
+
+/*@media (min-width: 768px) and (max-width: 992px) {*/
+	/*.carousel-inner {*/
+		/*height: 180px;*/
+	/*}*/
+/*}*/
+/*@media (min-width: 571px) and (max-width: 674px) {*/
+	/*.carousel-inner {*/
+		/*!*height: 200px;*!*/
+		/*height: 20vh!important;*/
+	/*}*/
+/*}*/
+
+/*@media (min-width: 300px) and (max-width: 570px) {*/
+	/*.carousel-inner {*/
+		/*!*height: 200px;*!*/
+		/*height: 25vh!important;*/
+	/*}*/
+/*}*/
+/*@media (max-width: 445px) {*/
+	/*.carousel-inner {*/
+		/*!*height: 200px;*!*/
+		/*height: 40vh!important;*/
+	/*}*/
+/*}*/
+/*@media (min-width: 675px) and (max-width: 767px) {*/
+	/*.carousel-inner {*/
+		/*height: 160px;*/
+	/*}*/
+/*}*/

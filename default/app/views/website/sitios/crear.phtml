@@ -1,0 +1,125 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+<div class="row">
+    <div class="span3">
+        <?php View::partial('website/menus/areas') ?>
+    </div>
+    <div class="span8 span-derecho" >
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php echo Form::hidden('sitios.id') ?>
+        <?php //echo Form::text('sitios.id') ?>
+        
+        
+        <!--<div class="control-group">
+
+            <label class="control-label" for="sitios_sedes_id">Campus: </label>
+            <div class="controls">
+                <?php //echo Form::dbSelect('sitios.sedes_id','nombre',array('sedes','find'),'- Seleccionar -','class="span3"') ?>
+            </div>
+        </div>-->
+
+        <div class="control-group">
+            <label class="control-label" for="sitios_areas_id">Pertenece: </label>
+
+            <div class="controls">
+                <?php echo Form::dbSelect('sitios.areas_id','nombre',array('areas','find','conditions: areas_id=1'),'- Seleccionar -','class="span3"') ?>
+            </div>
+        </div>
+       
+
+        <div class="control-group">
+            <label class="control-label" for="sitios_nombre">Nome*: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.nombre','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="sitios_urlpath">URL permanente: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.urlpath','class="span2"') ?> <span class="help-inline">(Ej. http://www.dominio.com.br/exemplo-pagina)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_titulo">Titulo do sitio: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.titulo','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_lema">Lema: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.lema','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_logo">Logo: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.logo','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_descripcion">Descrição do sitio (SEO): </label>
+            <div class="controls">
+                <?php echo Form::textarea('sitios.descripcion',array('class'=>"span4",'rows'=>'4')) ?>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="sitios_keywords">Palavras Chaves (SEO): </label>
+            <div class="controls">
+                <?php echo Form::textarea('sitios.keywords',array('rows'=>"5",'class'=>'span5')) ?>
+                <span class="help-inline">Apenas 20 palavras separadas por vírgulas</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_plantilla">Leyaout: </label>
+            <div class="controls">
+                <?php echo Form::select('sitios.plantilla',array('sedes' => '-- Seleccione --','default' => 'Default')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitio_color">Cor: </label>
+            <div class="controls">
+                <?php echo Form::text('sitios.color','class="span2"') ?>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="sitios_codigo">Código*: </label>
+
+            <div class="controls">
+                <?php echo Form::text('sitios.codigo','class="span2"') ?><span class="help-inline">(Ordem do sitio)</span>
+            </div>
+        </div>
+
+        <?php
+            if(Auth::get('master')=='1'):
+        ?>
+        <div class="control-group">
+            <label class="control-label" for="sitio_activo">Ativo(Visible): </label>
+            <div class="controls">
+                <?php echo Form::select('sitios.activo', array('1' => 'Si', '0' => 'No')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sitios_usuarios_id">Webmaster responsable: </label>
+            <div class="controls">
+                <?php echo Form::dbselect('sitios.usuarios_id','nombres',NULL,'','','class="span3"','2') ?>
+            </div>
+        </div>
+        <?php
+            endif;
+        ?>
+
+        <hr/>
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar datos', 'class="btn btn-principal"') ?>
+            <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+        
+</div>
+        

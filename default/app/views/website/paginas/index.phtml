@@ -1,0 +1,63 @@
+<div class="page-header">
+    <h1>Páginas  
+    </h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div>
+
+    <?php
+    //View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Crear página','opciones'=>FALSE));
+    //echo Form::open('website/paginas/ordenarlista', 'post', 'class="form_lista"');
+    View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Criar página'));
+    ?>
+<ul class="nav nav-tabs">
+    <?php
+        $n=1;
+        foreach($idiomas as $idioma):
+    ?>
+    <li <?php if($n==1){echo 'class="active"';} ?>><a href="#<?php echo $idioma->code ?>" data-toggle="tab"><?php echo $idioma->nombre ?></a></li>
+    <?php
+            $n++;
+        endforeach;
+    ?>
+</ul>
+
+<div class="tab-content">
+    
+    <div id="pt" class="tab-pane active"> 
+
+    <?php
+    $dt = new DataTable($paginas_es);
+    //$dt->addHeaders('Id','Nombre', '/URL_PATH','Redirec.', 'Orden', 'Conten', 'Estado', 'Seccion', 'Editar', 'Eliminar');
+    $dt->addHeaders('Id','Nome do botón', '/URL_PATH','Titulo da página','Id Area','Ordem', 'Estado', 'Alterar', 'Excluir');
+    $dt->addFields('id','nombre','urlpath','titulo','areas_id','orden');
+    //$dt->imgLink('figuras/ver.png', 'website/paginas/ver');
+    $dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/paginas/activar|website/paginas/desactivar', '', 'activo');
+   // $dt->imgLink('figuras/editar.png', 'website/paginas/seccion');
+    $dt->imgLink('figuras/editar.png', 'website/paginas/editar');
+    $dt->imgLinkConfirm('figuras/eliminar.png', 'website/paginas/eliminar', '', '¿Realmente desea eliminar esta página?');
+    echo $dt->render('class="table table-bordered table-striped"');
+
+    ?>
+
+    </div>
+    <div id="en" class="tab-pane"> 
+
+    <?php
+    $dt = new DataTable($paginas_en);
+    //$dt->addHeaders('Id','Nombre', '/URL_PATH','Redirec.', 'Orden', 'Conten', 'Estado', 'Seccion', 'Editar', 'Eliminar');
+    $dt->addHeaders('Id','Name of Button', '/URL_PATH','Title of Site', 'Order', 'Estado', 'Alterar', 'Delete');
+    $dt->addFields('id','nombre','urlpath','titulo','orden');
+    //$dt->imgLink('figuras/ver.png', 'website/paginas/ver');
+    $dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/paginas/activar|website/paginas/desactivar', '', 'activo');
+    //$dt->imgLink('figuras/editar.png', 'website/paginas/seccion');
+    $dt->imgLink('figuras/editar.png', 'website/paginas/editar');
+    $dt->imgLinkConfirm('figuras/eliminar.png', 'website/paginas/eliminar', '', '¿Tem certeza para excluir o conteudo?');
+    echo $dt->render('class="table table-bordered table-striped"');
+
+    ?>
+
+    </div>
+</div>
+

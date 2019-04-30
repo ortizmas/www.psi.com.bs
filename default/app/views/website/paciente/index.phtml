@@ -1,0 +1,73 @@
+<div class="page-header">
+  <h1>Relatorio de Pacientes</h1>
+</div>
+<div id="mensajes_flash" >
+    <?php View::content() ?>
+</div>
+<div class="input-append">
+    <?php echo Form::open('website/paciente/index'); //inicia un formulario que enviara los?>
+  Selecionar um setor:
+    <?php echo Form::dbSelect('paciente.areas_id','titulo',array('areas','find',"conditions: id=1"),'','onChange=submit()')?>
+  Nome
+    <?php echo Form::text('paciente_nome','onChange=submit()','');?>
+    <?php echo Form::close();?>
+</div>
+
+    <?php
+    //View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Criar Seção','opciones'=>FALSE));
+    ?>
+<?php
+    if (isset($paciente_all)) { ?>
+        <div class="hero-unit">
+            <h3>Dados da Pessoa</h3>
+            <hr>
+            <div class="row">
+                <div class="span5">
+                    Nome : <strong style="color: #A51C30"><?php echo $paciente_all['nome'] ?></strong><br>
+                    Sexo : <strong style="color: #A51C30"><?php echo $paciente_all['sexo'] ?></strong><br>
+                    Data de Nacimento : <strong style="color: #A51C30"><?php echo $paciente_all['datanasc'] ?></strong><br>
+                    Idade : <strong style="color: #A51C30"><?php echo $paciente_all['idade'] ?></strong><br>
+                    Peso : <strong style="color: #A51C30"><?php echo $paciente_all['peso'] ?></strong><br>
+                    Endereço : <strong style="color: #A51C30"><?php echo $paciente_all['endereco'] ?></strong><br>
+                </div>
+                <div class="span5">
+                    Cidade : <strong style="color: #A51C30"><?php echo $paciente_all['cidade'] ?></strong><br>
+                    E-mail : <strong style="color: #A51C30"><?php echo $paciente_all['email'] ?></strong><br>
+                    Facebook : <strong style="color: #A51C30"><?php echo $paciente_all['facebook'] ?></strong><br>
+                    Telefone : <strong style="color: #A51C30"><?php echo $paciente_all['telefone'] ?></strong><br>
+                    Whatsapp : <strong style="color: #A51C30"><?php echo $paciente_all['whatsapp'] ?></strong><br>
+                    Empresa : <strong style="color: #A51C30"><?php echo $paciente_all['empresa'] ?></strong><br>
+                </div>
+            </div>
+            
+        </div>
+    <?
+    }
+?>
+<?php
+    if (isset($perfildesaude)) {
+        echo '<h2>Perfil de Saude de: <strong style="color: #A51C30">'.$paciente_nome['nome'].'</strong></h2>';
+        $dt = new DataTable($perfildesaude);
+        //$dt->addHeaders('Id','Nombre', '/URL_PATH','Redirec.', 'Orden', 'Conten', 'Estado', 'Seccion', 'Editar', 'Eliminar');
+        $dt->addHeaders('Id','Perfil', 'Outros');
+        $dt->addFields('id','perfil','outros');
+        echo $dt->render('class="table table-bordered table-striped"');
+    }
+?>
+<div class="tab-content">
+    <?php
+    $dt = new DataTable($paciente_list);
+    //$dt->addHeaders('Id','Nombre', '/URL_PATH','Redirec.', 'Orden', 'Conten', 'Estado', 'Seccion', 'Editar', 'Eliminar');
+    $dt->addHeaders('Id','Nome', 'Sexo','Idade','Peso','E-mail', 'Estado','Dados', 'Perfil de Saude');
+    $dt->addFields('id','nome','sexo','idade','peso','email');
+    //$dt->imgLink('figuras/ver.png', 'website/paginas/ver');
+    $dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/paciente/activar|website/paciente/desactivar', '', 'activo');
+    $dt->imgLink('figuras/ver.png', 'website/paciente/ver');
+    $dt->imgLink('figuras/heart.png', 'website/paciente/perfildesaude');
+    //$dt->imgLink('figuras/editar.png', 'website/paciente/editar');
+    //$dt->imgLinkConfirm('figuras/eliminar.png', 'website/paciente/eliminar', '', '¿Realmente deseja excluir o Paciente?');
+    echo $dt->render('class="table table-bordered table-striped"');
+
+    ?>
+</div>
+

@@ -1,0 +1,51 @@
+<div class="page-header">
+	<h1><?php echo $titulo;?></h1>
+</div>
+<div class="row">
+    <div class="span3">
+        <?php View::partial('website/menus/archivos') ?>
+    </div>
+    <div class="span8 span-derecho form-horizontal" >
+    	<div id="res-form-ajax"><?php View::content() ?></div>
+ 			<?php echo Form::openMultipart(); ?>
+      <?php //echo Form::open('crear', 'post', 'class="scaffold"') ?>
+    	<div class="control-group form-horizontal">
+        <label class="required">Elegir carpeta <em>*</em></label>
+        <?php echo Form::dbSelect('archivos.carpetas_id','nombre',array('carpetas','find',"conditions: areas_id= 1"/*.Session::get('SITEID')*/),'- Ninguna -','class="span3" autocomplete="off" required="required"') ?>
+        <small>  Precissa criar uma pasta para o setor.</small>
+      </div>
+      <!--<div class="control-group">-->
+            <?php if (isset($usuario)) {?>                
+                    <?php foreach ($usuario as  $value) {
+                        $nombre = $value->nombres;
+                        $id = $value->id;
+                    }?>
+            <?php } ?>
+        <!--<label class="required">Id Usuarios <em>*</em></label>-->
+        <?php echo Form::hidden('archivos.usuarios_id','readonly="readonly" value="$id"',"$id") ?>
+      <div class="control-group">
+        <label class="required">Ativo <em>*</em></label>
+        <?php echo Form::select('archivos.activo',array('1' => 'Si', '0' => 'No'), 'autocomplete="off" required="required" maxlength="12" onkeypress="return permite(event, \'num_car\')"') ?>
+      </div>
+    	
+      <div class="control-group">
+        <label class="required">Tipo da imagem .jpg .gif ó .png:</label>
+          <?php echo Form::file('archivo', 'required="required" maxlength="500"') ?>
+          <a href="#" id="tam-img" class="btn btn-principal" rel="popover" data-placement="top" data-content="Publicidad: 220px x 144px</br>Noticias: 450px x 300px</br>Enlaces: 50px x 50px</br>Ojo: </strong><small>del contenido adecuelo a su conveniencia.</small>" data-original-title="Tamaño de las imagenes a subir">Ver tamanho de imagem</a>
+        <script>
+            $("#tam-img").popover({offset: 10});
+        </script>
+      </div>
+      <div class="form-actions">
+          <?php echo Form::submit('Guardar datos', 'class="btn btn-principal"') ?>
+          <?php echo Html::linkAction('', 'Cancelar', 'class="btn"') ?>
+      </div>
+      
+    
+ <?php echo Form::close() ?>
+ 	</div>
+</div>
+ 
+
+
+ 

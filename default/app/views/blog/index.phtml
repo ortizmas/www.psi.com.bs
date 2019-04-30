@@ -1,0 +1,45 @@
+<?php 
+	/*echo 'SEC :'.$seccion.'<br>';
+	echo 'OP :'.$opcion.'<br>';
+	echo 'SUBOP :'.$subopcion.'<br>';*/
+?>
+
+<?php
+//var_dump($contenidos);
+switch ($opcion) {
+	case 'blog':
+		if (isset($conteudoblog) and $conteudoblog != false) { ?>
+			<!--<img class="img-responsive img-blog" src="<?php echo $conteudoblog->miniatura ?>" width="100%" alt="" />-->
+			<div class="blog-content">
+				<a href="blog-item.html"><h3><?php echo $conteudoblog->titulo ?></h3></a>
+				<div class="entry-meta">
+					<span><i class="icon-user"></i> <a href="#"><?php echo $conteudoblog->registradopor ?></a></span>
+					<span><i class="icon-folder-close"></i> <a href="#"><?php echo $opcion ?></a></span>
+					<span><i class="icon-calendar"></i> <?php echo $conteudoblog->publicar ?></span>
+					<span><i class="icon-comment"></i> <a href="blog-item.html#comments">3 Comments</a></span>
+				</div>
+				<p><?php echo $conteudoblog->contenido ?></p>
+				<a class="btn btn-default" href="<?php echo $conteudoblog->urlpath ?>">Read More <i class="icon-angle-right"></i></a>
+			</div>
+		<?
+		}
+		View::template('blog');
+		break;
+
+	default:
+		if (isset($contenidos) and $contenidos != false) { ?>
+			<!--<img src="<?php //echo $contenidos->miniatura ?>" alt="Product 2">-->
+			<div class="item-large-content">
+				<div class="item-header">
+					<h2 class="pull-left"><?php echo $contenidos->subtitulo ?></h2>
+					<!--<span class="pull-right">Data de Publicação: <?php //echo $contenidos->publicar ?></span>-->
+					<div class="clearfix"></div>
+				</div>
+				<p><?php echo $contenidos->contenido ?></p>
+			</div>
+		<?
+		}
+		break;
+}
+?>
+<?php View::content() ?>

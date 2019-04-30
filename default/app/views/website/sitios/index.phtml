@@ -1,0 +1,21 @@
+<div class="page-header">
+    <h1>Sites</h1>
+</div>
+<div id="mensajes_flash" >        
+    <?php View::content() ?>
+</div>
+<?php
+View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Novo Site','opciones'=>FALSE));
+?>
+<h2>Ellustreinamentos</h2>
+<?php
+$dt = new DataTable($sitioslima);
+$dt->addHeaders('Id','Site', '/URL_PATH','Descrição', 'Estado', 'Editar', 'Excluir');
+$dt->addFields('id','nombre','urlpath','descripcion');
+$dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/sitios/activar|website/sitios/desactivar', '', 'activo');
+$dt->imgLink('figuras/editar.png', 'website/sitios/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'website/sitios/eliminar', '', '¿Realmente desea eliminar este sitio?');
+echo $dt->render('class="table table-bordered table-striped"');
+?>
+
+

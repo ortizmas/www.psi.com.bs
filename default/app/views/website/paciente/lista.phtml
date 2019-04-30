@@ -1,0 +1,88 @@
+<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+<div class="page-header">
+  <h1>Relatorio de Pacientes com Desconto pelas Empresas</h1>
+</div>
+<div id="mensajes_flash" >
+    <?php View::content() ?>
+</div>
+<div class="input-append">
+    <?php echo Form::open('website/paciente/lista'); //inicia un formulario que enviara los?>
+  Selecionar um setor:
+    <?php echo Form::dbSelect('paciente.areas_id','titulo',array('areas','find',"conditions: id=1"),'','onChange=submit()')?>
+    Pesquisa por Nome :
+    <?php echo Form::text('nome');?>
+    <?php echo Form::submit('Pesquisa', 'class="btn btn-primary"') ?>
+    <?php echo Form::close();?>
+</div>
+
+    <?php
+    //View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Criar Seção','opciones'=>FALSE));
+    ?>
+
+<div class="tab-content">
+    <?php
+        if (isset($id_paciente)) {
+            echo $id_paciente;
+        }
+    ?>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Idade</th>
+                <th>Empresa</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (isset($paciente_list)) {
+                foreach ($paciente_list as $key => $value) { ?>
+                    <tr>
+                        <td><?php echo $key+1 ?></td>
+                        <td><?php echo $value->nome ?></td>
+                        <td><?php echo $value->sexo ?></td>
+                        <td><?php echo $value->idade ?></td>
+                        <td><?php echo $value->empresa ?></td>
+                        <?php switch ($value->estado) {
+                            case 2:
+                                $img = '/img/figuras/circulo_azul.png';
+                                $text = 'Atendimentos Parciales';
+                                break;
+                            case 3:
+                                $img = '/img/figuras/circulo_verde.png';
+                                $text = 'Atenção ao 100% dos Serviços';
+                                break;
+                            case 4:
+                                $img = '/img/figuras/circulo_amarelo.png';
+                                $text = 'Inativo';
+                                break;
+                            default:
+                                $img = '/img/figuras/circulo_rojo.png';
+                                $text = 'Cadastro Gratuito';
+                                break;
+                        } ?>
+                        <td><img src="<?php echo $img ?>" alt="<?php echo $value->estado ?>"></td>
+                    </tr>
+                <?php
+                }
+            }
+        ?>
+        </tbody>
+    </table>
+</div>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+<script type="text/javascript">
+     jQuery(function() {
+        jQuery( "#nome" ).autocomplete({
+          minLength : 1 ,
+            source : function( request , response ){
+                var url = "/website/paciente/autocomplete_paciente";
+                $.post(url, { 'nome' : request.term }, response, 'json');
+            }
+          });
+      });
+</script>
+

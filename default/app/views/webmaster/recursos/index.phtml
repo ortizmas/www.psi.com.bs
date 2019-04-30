@@ -1,0 +1,24 @@
+<div class="page-header">
+    <h1>Recursos do Sistema
+        <?php echo Html::linkAction('escaner', 'Escanear Recursos por Agregar', 'class="btn btn-primary pull-right hidden-phone"') ?>
+    </h1>
+</div>
+<?php View::content() ?>
+<?php
+echo Form::open('webmaster/recursos/eliminar', 'post', 'class="form_lista"');
+View::partial('backend/barra_superior_listas', FALSE, array('texto' => 'Criar Recurso'));
+$dt = new DataTable($recursos);
+$dt->addHeaders(Form::check('seleccionar_todos', 'todos', NULL, FALSE));
+$dt->addHeaders('id', 'Modulo', 'Controlador');
+$dt->addHeaders('Ação', 'Descrição', 'Estado');
+$dt->addHeaders('Alterar', 'Excluir');
+$dt->check('recursos_id');
+$dt->addFields('id', 'modulo', 'controlador');
+$dt->addFields('accion', 'descripcion');
+$dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png',
+    'webmaster/recursos/activar|webmaster/recursos/desactivar', '', 'activo');
+$dt->imgLink('figuras/editar.png', 'webmaster/recursos/editar');
+$dt->imgLinkConfirm('figuras/eliminar.png', 'webmaster/recursos/eliminar', '', '¿Realmente desja excluir Este Recurso?');
+echo $dt->render('class="table table-bordered table-striped"');
+echo Form::close();
+?>

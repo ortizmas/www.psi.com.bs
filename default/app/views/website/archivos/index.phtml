@@ -1,0 +1,38 @@
+
+<div class="page-header">
+    <h1>Upload de Imagem ou arquivo</h1>
+</div>
+<div id="mensajes_flash" >
+    <?php View::content() ?>
+</div>
+
+<div class="input-append">
+  <?php echo Form::open('website/archivos/index'); //inicia un formulario que enviara los?>
+  <span>Seleção do Setor:</span>
+  <?php echo Form::dbSelect('archivos.areas_id','titulo',array('areas','find',"conditions: id= 1"/*.Session::get('SITEID')*/),'','onChange=submit()')?>
+  <span>Nome da Pasta</span>
+  <?php echo Form::dbSelect('archivos_id','nombre',array('carpetas','find',"conditions: areas_id= 1"/*.Session::get('SITEID')*/),'- seleccione la carpeta -','onChange=submit()') ?> 
+  <?php echo Form::close();?>
+</div>
+
+<?php
+View::partial('website/barra_superior_listas', FALSE, array('texto' => 'Crear archivo','opciones'=>FALSE));
+?>
+<?php
+  $dt = new DataTable($archivos);
+  $dt->addHeaders('N&ordm;','Arquivo','urlname','Tamanho','Tipo','Estado','Alterar', 'Excluir');
+  $dt->addFields('id','archivo','urlname','tamanho','tipo');
+  $dt->imgLink('figuras/circulo_rojo.png|figuras/circulo_verde.png','website/archivos/activar|website/archivos/desactivar', '', 'activo');
+  $dt->imgLink('figuras/editar.png', 'website/archivos/editar');
+  $dt->imgLinkConfirm('figuras/eliminar.png', 'website/archivos/eliminar', '', '¿Realmente desea eliminar este sitio?');
+  echo $dt->render('class="table table-bordered table-striped"');
+?>
+
+<?php if (isset($carpetas)) {?>                
+                    <?php foreach ($carpetas as  $value) {
+                        $nombre = $value->nombre;
+                        $id = $value->id;
+                        print_r($nombre) ;
+                        echo $id;
+                    }?>
+            <?php } ?>

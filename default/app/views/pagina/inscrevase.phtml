@@ -1,0 +1,150 @@
+<?php View::content() ?>
+	<h4>Inscrição</h4>
+    <form action="/inscricao"  method="post">
+        <div class="form-group">
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Nome Completo: </label>
+                    <input type="text" id="nome" name="nome" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">RG: </label><br>
+                    <span id="rg"></span>
+                    <input type="text" id="rg" name="rg" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">CPF: </label><br>
+                    <input type="text" id="cpf" name="cpf" class="form-control" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Data de Nacimento: </label>
+                    <input type="date" id="datanacimento" name="datanacimento" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">RUA: </label><br>
+                    <span id="rua"></span>
+                    <input type="text" id="rua" name="rua" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Numero: </label><br>
+                    <span id="numero"></span>
+                    <input type="text" id="numero" name="numero" class="form-control" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Barrio: </label>
+                    <input type="text" id="barrio" name="barrio" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">CEP: </label>
+                    <input type="text" id="cep" name="cep" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Cidade: </label><br>
+                    <span id="cidade"></span>
+                    <input type="text" id="cidade" name="cidade" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">UF: </label><br>
+                    <span id="uf"></span>
+                    <input type="text" id="uf" name="uf" class="form-control" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Formação : </label>
+                    <input type="text" id="formacao" name="formacao" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Empresa : </label>
+                    <input type="text" name="empresa" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Ramo: </label>
+                    <input type="text" id="ramo" name="ramo" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Função : </label><br>
+                    <span id="funcao"></span>
+                    <input type="text" id="funcao" name="funcao" class="form-control" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Fone  : </label>
+                    <input type="text" id="fone" name="fone" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">E-mail : </label><br>
+                    <input type="email" id="email" name="email" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Confirmação do E-mail : </label><br>
+                    <input type="email" id="confirm_email" name="confirm_email" class="form-control" required/>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <input type="submit" id="submit" value="Cadastrar" class="btn btn-primary" />
+        </div>
+    </form>
+<script type="text/javascript">
+	
+	jQuery(function($){
+	    $("#fone").mask("(99)999-999-999");
+	    $("#cpf").mask("999-999-999-99");
+	    $("#cep").mask("99.999-999");
+	    /*$("#ano").mask("9999");*/
+	});
+
+	var email = document.getElementById("email")
+	  , confirm_email = document.getElementById("confirm_email");
+
+	function validatePassword(){
+	  if(email.value != confirm_email.value) {
+	    confirm_email.setCustomValidity("Os E-mails são diferentes!");
+	  } else {
+	    confirm_email.setCustomValidity('');
+	  }
+	}
+
+	email.onchange = validatePassword;
+	confirm_email.onkeyup = validatePassword;
+</script>

@@ -1,0 +1,96 @@
+<?php
+	/*echo $seccion;
+	echo $opcion;*/
+	//var_dump($destaque);
+?>
+<?php
+	if ($seccion == 'destaque') {
+		if ($destaque != '') { ?>
+			<h3><?= $destaque->titulo ?></h3>
+			<img class="img-rounde" style="float: left; border-radius: 10px; margin: 5px;" src="<?= $destaque->miniatura ?>" alt="">
+			<div class="seccion1">
+				<?= $destaque->subtitulo ?>
+				<h5><?= $destaque->resumen ?></h5>
+				<?= $destaque->contenido ?>
+				<? 	if($destaque->fuente!=''){ ?>
+						<span class="fuente">Fuente: <? if($destaque->fuenteurl!="#"){ echo '<a href="'.$destaque->fuenteurl.'">'.$destaque->fuente.'</a>'; }else{ echo $destaque->fuente; } ?>
+						</span>
+					<? } ?>
+			</div>
+		<?
+		}else {
+			Router::redirect(' ');
+		}?>
+	<?php
+	}
+?>
+<?php
+	if ($seccion == 'servicos') { ?>
+		<?php if ($servicos != ''){ ?>
+			<h3><?= $servicos->titulo ?></h3>
+				<!--<img class="img-rounde" style="float: left; border-radius: 10px; margin: 5px;" src="<?//= $servicos->miniatura ?>" alt="">-->
+				<div class="seccion1">
+					<?= $servicos->contenido ?>
+					<? 	if($servicos->fuente!=''){ ?>
+							<span class="fuente">Fuente: <? if($servicos->fuenteurl!="#"){ echo '<a href="'.$servicos->fuenteurl.'">'.$servicos->fuente.'</a>'; }else{ echo $servicos->fuente; } ?>
+							</span>
+						<? } ?>
+				</div>
+				<br>
+		<?php }else {
+			Router::redirect(' ');
+		} ?>
+
+	<?php
+	}
+?>
+<?php
+	if ($seccion == 'treinamentos') {
+		if ($Treinamentos != '') { ?>
+			<h3><?= $Treinamentos->titulo ?></h3>
+			<img class="img-rounde" style="float: left; border-radius: 10px; margin: 5px;" src="<?= $Treinamentos->miniatura ?>" alt="">
+			<div class="seccion1">
+				<?= $Treinamentos->subtitulo ?>
+				<h5><?= $Treinamentos->resumen ?></h5>
+				<?= $Treinamentos->contenido ?>
+				<? 	if($Treinamentos->fuente!=''){ ?>
+						<span class="fuente">Fuente: <? if($Treinamentos->fuenteurl!="#"){ echo '<a href="'.$Treinamentos->fuenteurl.'">'.$Treinamentos->fuente.'</a>'; }else{ echo $Treinamentos->fuente; } ?>
+						</span>
+					<? } ?>
+			</div>
+		<?
+		}else {
+			Router::redirect(' ');
+		}?>
+
+	<?php
+	}
+?>
+<?php
+	if ($seccion == 'eventos') {
+		if ($Eventos != '') { ?>
+			<h3><?= $Eventos->titulo ?></h3>
+			<img style="float: left; padding-left: 10px;padding-right: 20px; padding-bottom: 10px;" src="<?= $Eventos->miniatura ?>" alt="">
+			<div class="seccion1" rel="340">
+				<?= $Eventos->subtitulo ?><br>
+				<?= $Eventos->resumen ?>
+				<?= $Eventos->contenido ?>
+				<? 	if($Eventos->fuente!=''){ ?>
+						<span class="fuente">Fuente: <? if($Eventos->fuenteurl!="#"){ echo '<a href="'.$Eventos->fuenteurl.'">'.$Eventos->fuente.'</a>'; }else{ echo $Eventos->fuente; } ?>
+						</span>
+					<? } ?>
+			</div>
+		<?
+		}?>
+	<?php
+	}
+?>
+
+<?php
+	if ($seccion == 'inscrevase') { ?>
+		<h1>INSCREVASE</h1>
+<?
+	}
+?>
+
+

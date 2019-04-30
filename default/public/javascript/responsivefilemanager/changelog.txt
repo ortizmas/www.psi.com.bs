@@ -1,0 +1,29 @@
+Version 2.0
+Plugin changes:
+
+    1. admin/edit.php file modification became unnecessary.
+    2. Upload_dir parameter from config/config.php sets according to your site's URL automatically. No need manual edit if your site installed not in domain root.
+    3. When Thumbnail inserted its generated with link to full size image. And its can be opened with PrettyPhoto script.
+    4. Thumb button programme code generates dynamically like CKEditor plugin when button Integrate is clicked.
+
+RFM core changes:
+
+    1. The kernel version has changed to 9.9.6.
+    2. Upgrade Aviary Image Editor with new Adobe Creative SDK without size limitation (may not work correctly on localhost servers).
+    3. Add files and folders counter on each folder.
+    4. Many improvements and security vulnerability fixes.
+--------------------------
+
+
+Version 2.1
+Plugin changes:
+
+    1. In CKEditor Thumbnail dialog window add 3 new control fields:
+       1.1. Thumbnail alignment;
+       1.2. Thumbnail target with 4 values: "_blank", "_self", "prettyPhoto", "Fancybox";
+       1.3. Thumbnail margins (around the text).
+    2. In plugin settings page add 2 new control fields:
+       2.1. Load PrettyPhoto JavaScript (control script loading on frontend pages);
+       2.2. Load FancyBox JavaScript (control script loading on frontend pages).
+    3. Thumbnail image now can be open in four modes: in new tab; in current page; with prettyPtoto script or with Fancybox 2 script.
+--------------------------

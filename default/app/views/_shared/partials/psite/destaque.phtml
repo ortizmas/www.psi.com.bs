@@ -1,0 +1,75 @@
+<div class="site-slider">
+    <div class="bx-wrapper" style="max-width: 100%;">
+        <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: auto;">
+            <ul class="bxslider" style="width: auto; position: relative;">
+                <?php
+                    $listaImg = Load::model('noticiasyeventos')->destaques();
+                    if(count($listaImg)>0){
+                        foreach($listaImg as $key => $img){ 
+                            if ($img->redireccionar==1) { ?>
+                                <li style="float: none; list-style: none; position: absolute; width: 1423px; z-index: 50; display: block;">
+                                    <img src="<?php echo $img->miniatura ?>" alt="<?php echo $img->titulo ?>" width="100%" height="auto">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <div class="slider-caption">
+                                                    <h2><?php echo $img->titulo ?></h2>
+                                                    <a target="<?php echo $img->linkblank ?>" href="<?php echo $img->linkurl ?>" title="" class="btn btn-success" style="float: right">Mais >></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php
+                            }else{ ?>
+                                <li style="float: none; list-style: none; position: absolute; width: 1423px; z-index: 50; display: block;">
+                                    <img src="<?php echo $img->miniatura ?>" alt="<?php echo $img->titulo ?>" width="100%" height="auto">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <div class="slider-caption">
+                                                    <a target="<?php echo $img->linkblank ?>" href="<?php echo 'pt/destaque/'.$img->urlpath ?>" ><h2><?php echo $img->titulo ?></h2> </a>
+                                                    <a target="<?php echo $img->linkblank ?>" href="<?php echo 'pt/destaque/'.$img->urlpath ?>" title="" class="btn btn-success btn-small" style="float: right">Mais >></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?
+                            }
+                        }
+                    }else{ ?>
+                <?php
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="bx-thumbnail-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="bx-pager">
+                        <?php
+                        $LinksImg = Load::model('noticiasyeventos')->destaques();
+                        if(count($LinksImg)>0){
+                            foreach($LinksImg as $key => $dato){
+                                if ($dato->redireccionar==1) { ?>
+                                    <a data-slide-index="<?php echo $key ?>" href="<?php echo $dato->linkurl ?>"><img src="<?php echo $dato->miniatura ?>" alt="" height="80px" width="200px"/></a>
+                                <?php
+                                }else{ ?>
+                                    <a data-slide-index="<?php echo $key ?>" href="<?php echo $dato->urlpath ?>"><img src="<?php echo $dato->miniatura ?>" alt="" height="80px" width="200px"/></a>
+                                <?php
+                                }?>
+                        <?php
+                            }
+                        }else{ ?>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

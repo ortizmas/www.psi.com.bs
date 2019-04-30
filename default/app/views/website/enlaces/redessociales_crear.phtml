@@ -1,0 +1,80 @@
+<div class="page-header">
+    <h1><?php eh($titulo) ?></h1>
+</div>
+<div class="row">
+    <div class="span3">
+        <?php View::partial('website/menus/redessociales') ?>
+    </div>
+    <div class="span8 span-derecho" >
+        <div id="res-form-ajax"><?php View::content() ?></div>
+        <?php echo Ajax::form('res-form-ajax', NULL, 'form-horizontal') ?>
+        <?php //echo Form::open(NULL, 'post', 'class="form-horizontal"') ?>
+        <?php echo Form::hidden('redessociales.id') ?>
+        <?php echo Form::hidden('redessociales.posicion','','3') ?>
+        <?php //echo Form::text('redessociales.id') ?>
+        
+        <div class="control-group">
+            <label class="control-label" for="redessociales_areas_id">Sitio al que pertenece: </label>
+            <div class="controls">
+                <?php //echo Form::dbSelect('redessociales.areas_id','nombre',array('areas','find',"conditions: sedes_id=".Session::get('SITEID')),'- Ninguna -','class="span3"') ?>
+                <?php echo Form::dbSelect('redessociales.areas_id','nombre',array('areas','find',"conditions: id= 1"/*.Session::get('SITEID')*/),'- Ninguna -','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+
+            <label class="control-label" for="redessociales_idioma_id">Idioma: </label>
+            <div class="controls">
+                <?php echo Form::dbSelect('redessociales.idiomas_id','nombre',array('idiomas','find'),'','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="redessociales_nombre">Nombre*: </label>
+            <div class="controls">
+                <?php echo Form::text('redessociales.nombre','class="span3"') ?>
+            </div>
+        </div>
+        <div class="control-group warning">
+            <label class="control-label" for="redessociales_url">URL</label>
+            <div class="controls">
+                <?php echo Form::text('redessociales.url','class="span4"') ?> <span class="help-inline">(Ej. http://www.upeu.edu.pe/ejemplo-pagina)</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="redessociales_plantilla">Target: </label>
+            <div class="controls">
+                <?php //echo Form::text('redessociales.target','class="span3"') ?>
+                <?php $ar2 =array('_blank' => '_blank','_parent' =>'_parent');?>
+                <?php echo Form::select('redessociales.target',$ar2, NULL);?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="redessociales_posicion">Posicion*: </label>
+
+            <div class="controls">
+                <?php echo Form::select('redessociales.posicion', array('4' => 'Redes Sociales')) ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="redessociales_activo">Activo</label>
+            <div class="controls">
+                <?php echo Form::select('redessociales.activo', array('0' => 'No', '1' => 'Si')) ?>
+
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="redessociales_posicion">Icono: </label>
+
+            <div class="controls">
+                <?php echo Form::select('redessociales.miniatura', array("facebook"=>"Facebook","twitter"=>"Twitter","youtube"=>"YouTube","slideshare"=>"Slideshare","picassa"=>"picassa","plus"=>"Google","fb"=>"Icono facebook","tw"=>"Icono twitter","ytb"=>"Icono youtube","flkr"=>"Icono Fliker","gmail"=>"Icono Gmail","gp"=>"Icono Google plus")) ?>
+            </div>
+        </div>
+        <div class="form-actions">
+            <?php echo Form::submit('Guardar datos', 'class="btn btn-principal"') ?>
+            <?php echo Html::linkAction('redessociales', 'Cancelar', 'class="btn"') ?>
+        </div>
+        <?php echo Form::close() ?>
+    </div>
+        
+</div>
+        

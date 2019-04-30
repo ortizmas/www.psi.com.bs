@@ -1,0 +1,17 @@
+<?php $res = Load::model('enlaces')->find('limit: 10', 'order: id DESC',"conditions: posicion=4 and areas_id= 1"/*.Session::get('SITEID')*/,'- Ninguna -','class="span3"'); ?>
+<?php $actual = Form::getFieldValue('enlaces.id') //vriable con el id del registro que se edita ?>
+
+<ul class="nav nav-tabs nav-stacked visible-desktop">
+    <li class="<?php if (!$actual) echo 'active'; ?>">
+        <?php echo Html::linkAction("redessociales_crear", 'Agregar Nuevo'); ?>
+    </li>
+    <?php foreach ($res as $e): ?>
+        <li class="<?php if ($e->id == $actual) echo 'active'; ?>">
+            <?php $content = h(strtoupper($e->nombre)); ?>
+            <?php echo Html::linkAction("redessociales_editar/$e->id", $content); ?>
+        </li>
+    <?php endforeach; ?>
+    <li>
+        <?php echo Html::linkAction("redessociales", 'Ver Todos...'); ?>
+    </li>
+</ul>
