@@ -155,20 +155,29 @@
 	        $projetos = Load::model('noticiasyeventos')->projetos($areas_id, $idiomas_id);
 		    foreach ($projetos as $key => $value) {
 		        if ($value->redireccionar == 1) { ?>
-		            <div class="col-md-3 about-grid">
-						<img src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
-						<h3><a target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>"><?php echo $value->subtitulo ?></a></h3>
+		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
+		            	<div class="card">
+							<img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+							<div class="card-footer text-center">
+								<h5><a target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>"><?php echo $value->subtitulo ?></a></h5>
+							</div>
+						</div>
 					</div>
 		        <?
 		        }else{ ?>
-		            <div class="col-md-3 about-grid">
-						<img src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
-						<h3><a target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>"><?php echo $value->subtitulo ?></a></h3>
+		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
+		            	<div class="card">
+		            		<img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		            		<div class="card-footer text-center">
+		            			<h5><a target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>"><?php echo $value->subtitulo ?></a></h5>
+		            		</div>
+		            	</div>
 					</div>
 		        <?
 		        }
 		    }
 		}
+		
 		public static function projetosConsultorio(){
 	        $areas_id = 1;
 	        $idiomas_id = 1;

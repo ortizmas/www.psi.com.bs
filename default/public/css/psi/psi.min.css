@@ -1,8 +1,7 @@
 .container-page{
-    width: 1180px;
+    max-width: 1180px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0;
-    position: relative;
 }
 .section-slide{
   width: 100%;
@@ -10,13 +9,11 @@
 }
 .container-page .carousel-control-prev {
   color:#036;
-  margin-left: -.5rem;
   z-index: 10;
 }
 
 .container-page .carousel-control-next {
   color:#036;
-  margin-right: -.5rem;
   z-index: 10;
 }
 
@@ -42,6 +39,10 @@
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+}
+.treinamentos h2 {
+    color: #fff;
+    font-size: 5em;
 }
 .hero-content-overlay {
     background: rgba(3, 3, 3, 0.75);
@@ -808,3 +809,32 @@ input[type="tel"].error,textarea.error,input[type="email"].error, input[type="te
   .caption p {
     padding:6px;
   }
+
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .container-page .carousel-control-prev {
+      color:#036;
+      margin-left: 0rem;
+      z-index: 10;
+    }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}

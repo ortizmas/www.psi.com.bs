@@ -458,25 +458,6 @@ li a.active{
 .contact-caption{
 	background: #3a9dca;
 }
-.contact-heading h2{
-	color: #fff;
-	font-size: 90px;
-}
-.contact-heading p {
-      font-size: 2em;
-      text-align: center;
-      color: #fff;
-}
-.contact-heading span {
-      font-size: 1em;
-      text-align: center;
-      color: #fff;
-      font-style: italic;
-}
-.contact-heading h3{
-    color: #fff;
-    font-size: 3em;
-}
 .contact-info{
 	padding-left: 40px;
 }
@@ -509,6 +490,7 @@ li a.active{
 	font-size: 14px;
 	color: #fff;
 	margin-bottom: 20px;
+	list-style: none;
 }
 .contact-info i.fa{
 	font-size: 16px;
@@ -593,9 +575,6 @@ li a.active{
 	left: 0;
 	margin-top: -830px;
 	background: rgba(0, 0, 0, 0.51);
-}
-.contact-caption{
-	margin-top: 30px;
 }
 /*Newsletter*/
 .newsletter{
