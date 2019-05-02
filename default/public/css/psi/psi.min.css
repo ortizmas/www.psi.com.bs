@@ -1,6 +1,6 @@
 .container-page{
-    max-width: 1180px;
-    width: 100%;
+    width: 1450px;
+    max-width: 100%;
     margin: 0 auto;
 }
 .section-slide{
@@ -817,11 +817,24 @@ input[type="tel"].error,textarea.error,input[type="email"].error, input[type="te
       margin-left: 0rem;
       z-index: 10;
     }
+    .treinamentos h2 {
+        font-size: 3em;
+    }
+    .section-slide {
+        padding-top: 11em;
+    }
+    .contact-form {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-
+    .contact-form {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
