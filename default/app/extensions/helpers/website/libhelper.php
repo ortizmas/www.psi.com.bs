@@ -157,19 +157,125 @@
 		        if ($value->redireccionar == 1) { ?>
 		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
 		            	<div class="card">
-							<img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
-							<div class="card-footer text-center">
-								<h5><a target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>"><?php echo $value->subtitulo ?></a></h5>
-							</div>
+			            	<a class="img-card" target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>>
+		                        <img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		                    </a>
+
+		                    <div class="card-content">
+	                            <h4 class="card-title">
+	                                <a target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>"><?php echo $value->subtitulo ?></a>
+	                            </h4>
+	                            <p class="">
+	                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+	                            </p>
+	                        </div>
+
+	                        <div class="card-read-more">
+	                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+	                                Lêr mais
+	                            </a>
+	                        </div>
 						</div>
 					</div>
 		        <?
 		        }else{ ?>
 		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
 		            	<div class="card">
-		            		<img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
-		            		<div class="card-footer text-center">
-		            			<h5><a target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>"><?php echo $value->subtitulo ?></a></h5>
+		            		<a class="img-card" target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>">
+		                        <img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		                    </a>
+
+		                    <div class="card-content">
+	                            <h4 class="card-title">
+	                                <a target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>"><?php echo $value->subtitulo ?></a>
+	                            </h4>
+	                            <p class="">
+	                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+	                            </p>
+	                        </div>
+
+	                        <div class="card-read-more">
+	                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+	                                Lêr mais
+	                            </a>
+	                        </div>
+		            	</div>
+					</div>
+		        <?
+		        }
+		    }
+		}
+
+		public static function palestras(){
+	        $areas_id = 1;
+	        $idiomas_id = 1;
+	        $projetos = Load::model('noticiasyeventos')->projetos($areas_id, $idiomas_id);
+		    foreach ($projetos as $key => $value) {
+		        if ($value->redireccionar == 1) { ?>
+		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
+		            	<!-- <div class="card">
+			            	<a class="img-card" target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>>
+		                        <img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		                    </a>
+
+		                    <div class="card-content">
+	                            <h4 class="card-title">
+	                                <a target="<?php echo $value->linkblank ?>" href="<?php echo $value->linkurl ?>"><?php echo $value->subtitulo ?></a>
+	                            </h4>
+	                            <p class="">
+	                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+	                            </p>
+	                        </div>
+
+	                        <div class="card-read-more">
+	                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+	                                Lêr mais
+	                            </a>
+	                        </div>
+						</div> -->
+					</div>
+		        <?
+		        }else{ ?>
+		            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pb-3">
+		            	<!-- <div class="card">
+		            		<a class="img-card" target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>">
+		                        <img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		                    </a>
+
+		                    <div class="card-content">
+	                            <h4 class="card-title">
+	                                <a target="<?php echo $value->linkblank ?>" href="<?php echo 'projetos/'.$value->urlpath ?>"><?php echo $value->subtitulo ?></a>
+	                            </h4>
+	                            <p class="">
+	                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+	                            </p>
+	                        </div>
+
+	                        <div class="card-read-more">
+	                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+	                                Lêr mais
+	                            </a>
+	                        </div>
+		            	</div> -->
+		            	<div class="card">
+		            		<div class="image">
+		            			<img class="card-img-top img-fluid" src="<?php echo $value->miniatura	?>" alt="<?php echo $value->titulo ?>">
+		            		</div>
+		            		<div class="details">
+		            			<div class="center">
+		            				<h1>Someone famous<br><span>team leader</span></h1>
+		            				<p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+		            				<ul>
+		            					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+		            					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+		            					<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+		            					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+		            					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+		            				</ul>
+		            			</div>
+		            		</div>
+		            		<div class="card-footer">
+		            			<p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
 		            		</div>
 		            	</div>
 					</div>

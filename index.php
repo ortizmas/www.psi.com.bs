@@ -23,11 +23,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ellustreinamentos</title>
+    <title>Pro Saúde Integral</title>
 </head>
 <body>
 
-    <a href="#"><img style="text-align: center; padding-left: 310px;" src="logo.jpg" alt="Ellustreinamentos"></a>
+    <a href="#"><img style="text-align: center; padding-left: 310px;" src="logo.jpg" alt="Pro Saúde Integral"></a>
 </body>
 </html>
 
